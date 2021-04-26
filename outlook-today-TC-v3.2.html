@@ -1,0 +1,682 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+
+<!-- Outlook Today by Felix Reta felix.reta@gmail.com 2000-2019
+Please be professional and mention me if you use this code
+Started customizing since Outlook 98, it has been successfully implemented up to OL 2016
+To implement you need to modify the registry, thanks slipstick.com:
+Make a backup of your system registry.
+Run the Registry Editor (regedit.exe).
+Navigate to the HKEY_CURRENT_USER\Software\Microsoft\Office\xx.0\Outlook\Today subkey. (Where xx = your version of Outlook.)
+Create a new STRING value, named URL.
+For the value of URL, enter the address of the web page you want to view when you click Outlook Today. 
+There is a variety of web portions that I added, please check the corresponding section in the html code that follows
+Added background blending and color to match Porsche 917 livery
+Added picture horizontal list to select the top margin picture to appear
+
+-->
+
+
+<html>
+<head>
+
+<style>
+
+
+<!-- Added background-color to match table css -->
+body			{margin-top:0px;margin-right:0px;margin-left:0px;background-color:#e5f5fb;}
+
+table {
+background-color: #e5f5fb;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+<!-- Added to have hidden pix list with no extra space -->
+ul{ margin-top:0; margin-bottom:0 }
+
+.CalendarSubjectLocation  		{} 
+
+.CalendarStartEnd  		{} 
+
+.InboxCount 			      {font-weight:bold;} 	
+				
+.InboxCountZero 			      {font-weight:normal;}
+
+.options		      {color:black;font-family:Tahoma;font-size:8pt;text-decoration:none;}
+
+.date			      {margin-bottom:4px;color:Indigo;font-family:Arial;
+			            font-size:11pt;font-weight:bold; }
+
+.itemNormal 		{font-size:8pt;	font-family:Tahoma; text-decoration:none;color:windowtext; } 
+
+.times 			   {font-size:7pt; line-height:11pt; font-family:Tahoma; text-decoration:none; cursor:hand; color:buttonshadow;}
+
+.PastTimes 		   {color:buttonshadow; line-height:11pt; font-size:7pt; 
+				            text-decoration:none; cursor:hand; }
+.SplitDayTimes		   {color:teal; font-size:7pt; line-height:11pt;  
+				            text-decoration:none; cursor:hand; }
+.allDayEventTimes	   {color:teal; line-height:11pt; font-size:7pt;
+				            text-decoration:none; cursor:hand; }
+.TskDone		      {font-size:8pt;color:gray; text-decoration:line-through;} 
+
+.itemImportant 	{color:red} 
+
+.dayHeaders 		{font-family:Tahoma;font-size:8pt;font-weight:bold;
+			         width:100%; height:100%;
+		            border-color:#CCCCCC;
+			         border-width:.1em;
+		            border-bottom-style:solid;
+		            border-top-style:none;
+		            border-right-style:none;
+		            border-left-style:none;
+			   color:windowtext;
+			   cursor:default;
+
+ }
+
+.SplitDay		   {font-size:8pt; font-family:Tahoma; text-decoration:none;color:teal;}
+
+.allDayEvent 		{font-size:8pt;	font-family:Tahoma; text-decoration:none;color:teal;} 
+
+.ApptPast		   {color:buttonshadow; }   
+
+.Folder			   {color:Indigo;font-weight:bold; font-family:Tahoma;font-size:8pt;text-decoration:none; }
+
+.NextAppt	 	   {font-family:Marlett;font-size:10pt;line-height:12pt;font-weight:bold;
+				         text-decoration:none;color:darkred; }
+				
+.OnGoing		      {font-family:Marlett;font-size:10pt;line-height:12pt;font-weight:bold;
+				         text-decoration:none;color:darkred; }
+				
+.ImportanceIcon 	{font-family:Symbol;font-size:11pt;font-weight:bold;
+				         text-decoration:none;color:red; }
+
+TD                {font-family:tahoma; font-size:8pt;}
+
+<-- after adding background-color to body and table, background color pink was overriden -->
+.component        { background-color:OrangeRed; height:16px; color:windowtext;cursor:hand;
+		                  font-family:Tahoma; font-size:8pt;font-weight:bold;}
+.componentLink    { text-decoration:none; }
+.borderBottom     {
+		               border-color:#CCCCCC;
+		               border-width:.1em;
+		               border-bottom-style:solid;
+		               border-top-style:none;
+		               border-right-style:none;
+		               border-left-style:none;
+                  }
+.borderRight 		{ BORDER-RIGHT: rgb(192,192,192) 1px solid; color:buttonface;}
+
+.button2         {
+         
+         		position:relative;
+			height:100%;
+			text-decoration:none;
+			color: black;
+			font-weight: normal;
+         		font-size: 8pt;
+			font-family:tahoma;
+		  	border-width:.1em;
+			border-style:solid;
+			border-bottom-color:black;
+			border-top-color:black;
+			border-right-color:black;
+			border-left-color:black;
+		}
+.button2over       {
+			position:relative;
+			height:100%;
+			text-decoration:none;
+			color: black;
+         		font-size: 8pt;
+			font-family:tahoma;
+			font-weight: normal;
+		   	border-width:.1em;
+		   	border-style:solid;
+			border-bottom-color:gray;
+			border-top-color:white;
+			border-right-color:gray;
+			border-left-color:white;
+
+		}
+.button2down       {
+			position:relative;
+			height:100%;
+			font-family:tahoma;
+			font-size:8pt;
+			text-decoration:none;
+			color: black;
+			font-weight: normal;
+			border-width:.1em;
+			border-style:solid;
+			border-bottom-color:white;
+			border-top-color:gray;
+			border-right-color:white;
+			border-left-color:gray;
+
+		}
+
+
+</STYLE>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Outlook Today</title>
+
+<!-- OUTLOOK OBJECTS FOR DATABINDING -->
+
+<OBJECT ID="CalList" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Module" VALUE="Calendar"></OBJECT>
+
+<OBJECT ID="TaskList" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Module" VALUE="Tasks"></OBJECT>
+
+<OBJECT ID="MailList" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Module" VALUE="Inbox"></OBJECT>
+
+<OBJECT ID="FollowUp" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Folder" VALUE="Search Folders\For Follow Up">
+
+</OBJECT>
+
+<OBJECT id=ViewCtlFolder classid=CLSID:0006F063-0000-0000-C000-000000000046
+        width="100%"
+        height="430" border="1"
+        Codebase="http://activex.microsoft.com/activex/controls/office/outlctlx.CAB#ver=9,0,0,3203">>
+<param name="Namespace" value="MAPI">
+<param name="Folder" value="Search Folders\For Follow Up">
+<!-- <param name="View" value="Sent To" -->
+<param name="Restriction" value="">
+<param name="DeferUpdate" value="0">
+</OBJECT>
+
+
+<!-- from other tips
+<OBJECT ID="FollowUp" classid=CLSID:0006F063-0000-0000-C000-000000000046 id=ViewCtlFolder width="600" height="650">
+<param name="Folder" value="Search Folders\Follow Up">
+<param name="Namespace" value="MAPI">
+<param name="Restriction" value><param name="DeferUpdate" value="0">
+<PARAM NAME="Module" VALUE="For Follow Up">
+</OBJECT>
+-->
+
+<!-- Disabled, giving issues for property during queryselect in OL2016
+<script>
+
+
+function clock() {// We create a new Date object and assign it to a variable called "time".
+var time = new Date(),
+    
+    // Access the "getHours" method on the Date object with the dot accessor.
+    hours = time.getHours(),
+    
+    // Access the "getMinutes" method with the dot accessor.
+    minutes = time.getMinutes(),
+    
+    
+    seconds = time.getSeconds();
+
+document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+  
+  function harold(standIn) {
+    if (standIn < 10) {
+      standIn = '0' + standIn
+    }
+    return standIn;
+  }
+}
+setInterval(clock, 1000);
+
+</script>
+-->
+
+
+</HEAD>
+<BODY>
+
+<TABLE border=0 cellPadding=0 cellSpacing=0 width=100% bgcolor=#FA5882>
+  <TR>
+      
+<!-- use 1969-Porsche-917-3.jpg for non animated picture -->
+<!-- use Louboutins neon-red-ani.gif for Louboutins animated picture -->
+<!-- use VW Golf MK2 GTI front blk.png for GTI front picture -->
+<!-- use 220px-Louboutin_Pigalle_Follies_Suede_Paillette.gif for 3D Louboutin Pigalle view -->
+<!-- use Giuseppe Zanotti rose gold sandal.jpg fpr rose gold Zanotti samdal -->
+<!-- use Giuseppe Zanotti silver metallic sandal.jpg fpr silver metallic Zanotti samdal -->
+<!-- use Giuseppe Zanotti silver metallic sandal.gif fpr silver metallic Zanotti samdal transp bkg -->
+<!-- use Salvatore Ferragamo flats-ani-transp.gif for Ferragamo flats colors transp bkg -->
+<!-- Added horizontal list to pick your top margin graphic -->
+
+<script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+    <ul style="list-style: none; font-family: Verdana, Arial, Helvetica, sans-serif; color:WhiteSmoke">
+		<li title="Ferragamo Flats" onClick="LoadImage(Ferragamo)" style="cursor: pointer; font-size: 10; display: inline" >Silver</li>
+        <li title="Silver Metallic" onClick="LoadImage(Silver)" style="cursor: pointer; font-size: 10; display: inline" >Silver</li>
+        <li title="Rose Gold" onclick="LoadImage(Rose)" style="cursor: pointer; font-size: 10; display: inline" >Rose Gold</li>
+		<li title="Loboutin Pigalle 360" onclick="LoadImage(Pigalle)" style="cursor: pointer; font-size: 10; display: inline">Pigalle</li>
+		<li title="Loboutin Neon" onclick="LoadImage(LoubieNeon)" style="cursor: pointer; font-size: 10; display: inline">LoubieNeon</li>
+        <li title="Gulf Porsche 917" onclick="LoadImage(P917)" style="cursor: pointer; font-size: 10; display: inline">917</li>
+		<li title="GTI" onclick="LoadImage(GTI)" style="cursor: pointer; font-size: 10; display: inline">GTI</li>
+    </ul>
+
+
+<!--      <img src="#"  alt="" title="" id="TCImg"/>  -->
+
+<td id=Top_Margin_Image height=40 valign=top width=120px align=left>
+<!-- src="#" renders a square "X" (e.g. no default image), using src="[IMAGE FILE]" serves as default and is overriden by LoadImage -->
+         <img id=TCImg src="1969-Porsche-917-3.jpg" border=0 align=left valign=top hspace=0 vspace=0 height=100px> 
+            <script>
+            
+            function LoadImage ( src_ ) {
+                  
+              document.getElementById('TCImg').src = src_;
+              
+            }
+            
+                var Ferragamo = "Salvatore Ferragamo flats-ani-transp.gif";
+                var Silver = "Giuseppe Zanotti silver metallic sandal.gif";
+                var Rose = "Giuseppe Zanotti rose gold sandal.gif";
+                var Pigalle = "220px-Louboutin_Pigalle_Follies_Suede_Paillette.gif";
+				var LoubieNeon = "Louboutins neon-red-ani.gif";
+                var P917 = "1969-Porsche-917-3.jpg";
+                var GTI = "VW Golf MK2 GTI front blk.png";
+                
+        </script>
+      </td>
+  <td id=Daily_Quote align=center valign=center height=60px>
+  
+<!-- use quotebr.js for normal daily quotes, quotefu.js for funny,  quotear.js for art, quotelo.js for love, quotena.js for nature -->
+<script type="text/javascript" src="http://www.brainyquote.com/link/quotefu.js"></script><small></small>
+  </td>
+      <TD height=28 noWrap valign=center align=center>
+         <div id=dateScript class=date></div>
+
+<!-- Analog clock
+
+	<TD height=40 nowrap valign=center align=center>
+<iframe src="http://free.timeanddate.com/clock/i65k4mbt/n820/szw60/szh60/hocf00/hbw8/cf100/hnce1ead6" frameborder="0" width="60" height="60"></iframe>
+
+      </TD>
+end of Analog clock
+
+-->
+<!-- This is a digital clock right below the date  -->
+
+<iframe src="http://free.timeanddate.com/clock/i6fp473b/n3546/fc4b0082/fn12/fs20/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="120" height="30" allowTransparency="true"></iframe>
+
+<!--  OLD CODE, Too small for high resolution
+<iframe src="http://free.timeanddate.com/clock/i65k34x9/n263/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="100" height="40" allowTransparency="true"></iframe>
+-->
+
+<!-- Next code segment is commented out to get rid of the "customize Outlook Today" option -->
+
+<!--      <TD id=outlook_align3 height=28 noWrap vAlign=bottom align=right>
+	<table border=0 cellpadding=1 id=topbuttons1 height=20px>
+	   <tr>
+	     <td valign=top>
+	      <div id=OptionsCell class=button2 style="line-height:13pt;width:100%;"
+		         onmousedown="OptionsCell.className ='button2down';"
+		         onmouseup="OptionsCell.className='button2over';">
+		
+		      <a id="GoToOptions"  class=options tabindex=1 href="outlook:today?RelativeURL=custom.htm"
+			accesskey=u
+     		        onfocus="OptionsCell.className='button2over';"
+			onblur="OptionsCell.className='button2';">
+			   &nbsp;C<U>u</U>stomize&nbsp;Outlook&nbsp;Today&nbsp;...&nbsp; 
+		     </a>
+		
+             </div>
+
+
+		</td>
+		<td width=4px>&nbsp;</td>
+		</tr>
+
+		</table>
+         </div>
+	   </TD>
+-->
+	</TR>
+<TR>
+
+</TR>
+
+</TABLE>
+
+<table background="Schnauzers poster.jpg" border=0 cellspacing=0 cellpadding=0 width=100%>
+<tr><td colspan=9 width=12px>&nbsp;</td></tr>
+  <tr>
+<!-- Calendar begins -->
+      <td valign=top width=47%>
+	      <table cellpadding=2 cellspacing=0 border=0 width=100%>
+	         <TR>
+			      <td><div style='margin-left:9px'>&nbsp;</div></td>
+		         <TD id=CellCalHdr class=component child=CalendarHeader 
+			onclick="window.document.location.href='outlook:calendar';window.event.returnValue=false;"
+			vAlign=bottom width=100% nowrap>					
+                  		&nbsp;<a id=CalendarHeader href="outlook:calendar" onclick="window.event.cancelBubble=true;" class=componentLink>Kalender</a>
+	            </TD>
+            </tr>
+         </table>
+      <br>	
+	   <table id=CalendarLiveTable border=0 cellspacing=1 cellpadding=2 valign=top width=100% name="ItemCol" datasrc="#CalList" style="display:;">
+		   <tr>
+	           
+		      <td nowrap valign=top width=10px align=left><div datafld="Next" DATAFORMATAS="html"></DIV></TD>
+				   <td valign=top nowrap><DIV DATAFLD="StartEnd" DATAFORMATAS="html" class=CalendarStartEnd >&nbsp;</DIV></TD>
+               	       			
+				   <td valign=top width=100%><div datafld="SubjectLocation" DATAFORMATAS="html" class=CalendarSubjectLocation>&nbsp;</DIV></TD>
+               
+			   </tr>
+	   </table>
+	
+		<TABLE id=CalendarStaticTable border=0 cellspacing=1 cellpadding=2 valign=top width=100%>
+			<!-- RENSTATICTABLE~Calendar~Next=nowrap valign=top width=10px align=left~StartEnd=valign=top nowrap ~SubjectLocation=valign=top width=100%~ -->
+		</table>
+  
+
+     
+      </td>
+      <td width=12px class=borderRight><img src=gap.gif width=12px border=0></td>
+       <td width=12px><img src=gap.gif width=12px border=0></td>
+     <!-- Tasks begins -->
+      <td valign=top width=33%>
+	      <table  cellpadding=2 cellspacing=0 width=100%>
+	         <TR>
+		         <TD id=TaskHdrCell class=component child=TasksHeader 
+                                 onclick="window.document.location.href='outlook:tasks';window.event.returnValue=false;"
+				 vAlign=bottom width=100% nowrap>
+				&nbsp;<a id=TasksHeader href="outlook:tasks" onclick="window.event.cancelBubble=true;" class=componentLink>Aufgabenliste</a>
+	            </TD>
+            </tr>
+         </table>
+         <br>
+		   <TABLE border=0 name="TaskCol" cellspacing=0 id=TasksLiveTable datasrc="#TaskList" width=100% style="display:;">
+			   <TBODY>	
+			    <TR>
+			    	<TD width=1px><INPUT TYPE=checkbox DATAFORMATAS="Text" DATAFLD="Complete" height=20px></TD>
+				   <TD width=1px><DIV DATAFLD="Importance" DATAFORMATAS="html" class=TaskImportance></DIV></TD>
+				   <TD><DIV DATAFLD="Subject" DATAFORMATAS="html" class=TaskSubject></DIV></TD>    
+			 	  </TR>
+			   </TBODY>
+		   </TABLE>
+
+		<table border=0 id=TasksStaticTable cellspacing=0 width=100%>
+			<!-- RENSTATICTABLE~Tasks~!Complete=width=20px height=22px~Importance=width=1px~Subject=~ -->
+		</table>
+
+
+
+
+
+     </td>
+      <td width=12px class=borderRight><img src=gap.gif width=12px border=0></td>
+       <td width=12px><img src=gap.gif width=12px border=0><img src=gap.gif width=12px border=0></td>
+
+
+<!-- Mail begins -->
+      <td valign=top width=20%>
+	      <table cellpadding=2 cellspacing=0 width=100%>
+	         <TR>
+		  <TD id=CellMail class=component child=MailHeader
+			onclick="window.document.location.href='outlook:inbox';window.event.returnValue=false;" 
+			vAlign=bottom width=100% nowrap>
+		        &nbsp;<a id=MailHeader href="outlook:inbox" onclick="window.event.cancelBubble=true;" class=componentLink>Mail</a>
+	            </TD>
+            </tr>
+
+         </table>
+
+
+
+
+         <br>
+	      <table border=0 name="MailCol" id=InboxLiveTable datasrc="#MailList" cellspacing=0 width=100%
+				style="display:;">
+	         <tbody>	
+			      <tr>
+				      <td id=folder_name align=left valign=top class=borderBottom><DIV  DATAFLD="Name" DATAFORMATAS="html" class=Folder></DIV></td>
+				      <td id=folder_count nowrap valign=top class=borderBottom align=right><DIV DATAFLD="Count" DATAFORMATAS="html" class=InboxCount></DIV></td>    
+			      </tr>
+
+
+	      </tbody>
+	      </table>
+
+
+
+	      <table id=InboxStaticTable border=0 cellspacing=0 width=100%>
+		      <!-- RENSTATICTABLE~Inbox~Name=align=left class=borderBottom valign=top~Count=class=borderBottom  align=right valign=top nowrap~ -->
+	      </table>
+      </td>
+      <td width=12px><img src=gap.gif width=12px border=0></td> 
+  </tr>
+</table>
+
+
+
+<!--
+  ------------------------------------------------------------------------
+							SCRIPT
+  ------------------------------------------------------------------------
+-->
+
+<!-- This script block runs after the window has finished loading 
+	(and after the datasource controls have rendered themselves)
+	Thus it should be used for frosting that does not effect the
+	page's core functionality.  -->
+
+	
+<script defer for=window event=onload language="JavaScript">
+
+///////////////////////////////////////////////////////////////////////////
+// Displays the date in the banner
+
+document.all.dateScript.innerHTML = window.external.GetDate();
+
+
+/////////////////////////////////////////////////////////////////////
+//Event Handling Functions
+
+document.onmouseover = rollOn
+document.onmouseout = rollOff
+
+function rollOn() {
+    var e;
+    var child;
+ 
+   e = window.event.srcElement;
+   child = document.all[e.getAttribute("child", false)];      
+    switch ( e.className )
+    {
+		case 'options':
+		{
+			OptionsCell.className = "button2over";
+		}
+		break;
+
+		case 'itemNormal':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+
+		case 'allDayEvent':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+		case 'allDayEventTimes':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+		case 'times':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+
+		case 'ApptPast':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+
+		case 'PastTimes':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+
+		case 'itemImportant':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+
+		case 'TskDone':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+		case 'component':
+		{
+			e.style.textDecorationUnderline = true;
+			
+		}
+		break;
+
+		case 'componentLink':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+
+		case 'link':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+		case 'SplitDay':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+		case 'SplitDayTimes':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+		case 'Folder':
+		{
+			e.style.textDecorationUnderline = true;
+		}
+		break;
+	}
+	
+
+	window.event.cancelBubble = true;
+}
+
+function rollOff() {
+    var e;
+    var child;
+ 
+   e = window.event.srcElement;
+   child = document.all[e.getAttribute("child", false)];     
+
+    switch ( e.className )
+    {
+		case 'options':
+		{
+			OptionsCell.className = "button2";
+		}
+		break;
+
+		case 'itemNormal':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+
+		case 'allDayEvent':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+		case 'allDayEventTimes':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+		case 'times':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+
+		case 'ApptPast':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+
+		case 'PastTimes':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+
+		case 'itemImportant':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+
+		case 'TskDone':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+		case 'component':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+		case 'componentLink':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+
+		case 'link':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+		case 'SplitDay':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+		case 'SplitDayTimes':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+		case 'Folder':
+		{
+			e.style.textDecorationUnderline = false;
+		}
+		break;
+
+	}
+	
+	window.event.cancelBubble = true;
+}
+
+</script>
+
+</body>
+
+</html>

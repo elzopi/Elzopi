@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<script type="text/javascript" src="script/jquery-1.2.2.pack.js"></script>
+<script type="text/javascript" src="script/ddaccordion.js">
+</script>
+
+<style type="text/css">
+
+.today{
+cursor: hand;
+cursor: pointer;
+padding: 2px 5px;
+border: 1px solid gray;
+background: #D7E8FC;
+height: 20px;
+color: windowtext;
+font-family: Tahoma;
+font-size: 9pt;
+font-weight: bold;
+}
+
+.today1{ /*class added to contents of 1st demo when they are open*/
+background: #FBDD49;
+}
+
+</style>
+
+<script type="text/javascript">
+
+ddaccordion.init({
+headerclass: "today", //Shared CSS class name of headers group
+contentclass: "today3", //Shared CSS class name of contents group
+collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
+animatedefault: false, //Should contents open by default be animated into view?
+persiststate: true, //persist state of opened contents within browser session?
+toggleclass: ["", "today1"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+togglehtml: ["none", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively ["position", "html1", "html2"] (see docs)
+animatespeed: "normal", //speed of animation: "fast", "normal", or "slow"
+oninit:function(expandedindices){ //custom code to run when headers have initalized
+//do nothing
+},
+onopenclose:function(header, index, state, isclicked){ //custom code to run whenever a header is opened or closed
+//do nothing
+}
+})
+
+</script>
+
+<style>
+
+a {color:windowtext;}
+
+body {margin-top:0px;margin-right:0px;margin-left:0px;}
+
+
+.CalendarSubjectLocation {}
+
+.CalendarStartEnd {}
+
+.InboxCount {font-weight:bold;}
+
+.InboxCountZero {font-weight:normal;}
+
+.options {color:white;font-family:Tahoma;font-size:8pt;text-decoration:none;}
+
+.date {margin-bottom:4px;color:white;font-family:Arial;
+font-size:11pt;font-weight:bold; }
+
+.itemNormal {font-size:8pt; font-family:Tahoma; text-decoration:none;color:windowtext; }
+
+.times {font-size:7pt; line-height:11pt; font-family:Tahoma; text-decoration:none; cursor:hand; color:#808080;}
+
+.PastTimes {color:#808080; line-height:11pt; font-size:7pt;
+text-decoration:none; cursor:hand; }
+.SplitDayTimes {color:teal; font-size:7pt; line-height:11pt;
+text-decoration:none; cursor:hand; }
+.allDayEventTimes {color:teal; line-height:11pt; font-size:7pt;
+text-decoration:none; cursor:hand; }
+.TskDone {font-size:8pt;color:gray; text-decoration:line-through;}
+
+.itemImportant {color:red}
+
+.dayHeaders {font-family:Tahoma;font-size:8pt;font-weight:bold;
+width:100%; height:100%;
+border-color:#CCCCCC;
+border-width:.1em;
+border-bottom-style:solid;
+border-top-style:none;
+border-right-style:none;
+border-left-style:none;
+color:windowtext;
+cursor:default;
+
+}
+
+.SplitDay {font-size:8pt; font-family:Tahoma; text-decoration:none;color:teal;}
+
+.allDayEvent {font-size:8pt; font-family:Tahoma; text-decoration:none;color:teal;}
+
+.ApptPast {color:#808080; }
+
+.Folder {color:windowtext; font-family:Tahoma;font-size:8pt;text-decoration:none; }
+
+.NextAppt {font-family:Marlett;font-size:10pt;line-height:12pt;font-weight:bold;
+text-decoration:none;color:darkred; }
+
+.OnGoing {font-family:Marlett;font-size:10pt;line-height:12pt;font-weight:bold;
+text-decoration:none;color:darkred; }
+
+.ImportanceIcon {font-family:Symbol;font-size:11pt;font-weight:bold;
+text-decoration:none;color:red; }
+
+TD {font-family:tahoma; font-size:8pt;}
+
+.component { background-color:#D7E8FC; height:16px; color:windowtext;
+font-family:Tahoma; font-size:8pt;font-weight:bold;}
+.componentLink { text-decoration:none; }
+.borderBottom {
+border-color:#CCCCCC;
+border-width:.1em;
+border-bottom-style:solid;
+border-top-style:none;
+border-right-style:none;
+border-left-style:none;
+}
+.borderRight { BORDER-RIGHT: rgb(192,192,192) 1px solid; color:buttonface;}
+
+.button2 {
+
+position:relative;
+height:100%;
+text-decoration:none;
+color: white;
+font-weight: normal;
+font-size: 8pt;
+font-family:tahoma;
+border-width:.1em;
+border-style:solid;
+border-bottom-color:black;
+border-top-color:black;
+border-right-color:black;
+border-left-color:black;
+}
+.button2over {
+position:relative;
+height:100%;
+text-decoration:none;
+color: white;
+font-size: 8pt;
+font-family:tahoma;
+font-weight: normal;
+border-width:.1em;
+border-style:solid;
+border-bottom-color:gray;
+border-top-color:white;
+border-right-color:gray;
+border-left-color:white;
+
+}
+.button2down {
+position:relative;
+height:100%;
+font-family:tahoma;
+font-size:8pt;
+text-decoration:none;
+color: white;
+font-weight: normal;
+border-width:.1em;
+border-style:solid;
+border-bottom-color:white;
+border-top-color:gray;
+border-right-color:white;
+border-left-color:gray;
+
+}
+</STYLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>infoPortal</title>
+
+<!-- OUTLOOK OBJECTS FOR DATABINDING -->
+<!-- Customize the paths to your environment -->
+
+<!-- personal calendar -->
+<OBJECT ID="CalList1" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Module" VALUE="Calendar">
+</OBJECT>
+
+<!-- personal tasks -->
+<OBJECT ID="TaskList1" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Module" VALUE="Tasks">
+</OBJECT>
+
+<!-- public calendar -->
+<OBJECT ID="CalList2" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Module" VALUE="Calendar">
+<PARAM NAME="Path" VALUE="Search Folders\Follow Up">
+</OBJECT>
+
+<!-- public tasks -->
+<OBJECT ID="TaskList2" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
+<PARAM NAME="Module" VALUE="Tasks">
+<PARAM NAME="Path" VALUE="Search Folders\Unread Mail">
+</OBJECT>
+
+</HEAD>
+<BODY>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="59">
+<tr>
+<td nowrap width="10" background="images\bg-pad1.jpg" ></td>
+<td nowrap width="556"><a title="www.jeicivil.com" href="http://www.jeicivil.com" target="_blank"><img src="images/banner.jpg" alt="" height="59" width="556" border="0"></a></td>
+<td nowrap id="date" valign=middle background="images\bg-pad2.jpg"><div id=dateScript class=date></div></td>
+</tr>
+</table>
+
+<div class="today">Outlook Today</div>
+<div class="today3">
+
+<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<tr>
+<td colspan=9 width=12px>*</td>
+</tr>
+<tr>
+
+<!-- Perconal Section Begins -->
+<!-- personal calendar folder -->
+<td valign=top width=47%>
+<table cellpadding=2 cellspacing=0 border=0 width=100%>
+<tr>
+<td><div style='margin-left:2px'>*</div></td>
+<td id=CellCalHdr1 class=component child=CalendarHeader1
+vAlign=bottom width=100% nowrap>
+*<a id=CalendarHeader1 href="outlook:\\Calendar" onclick="window.event.cancelBubble=true;" class=componentLink>My Calendar</a>
+</td>
+</tr>
+</table>
+<br>
+<table id=CalendarLiveTable1 border=0 cellspacing=1 cellpadding=2 valign=top width=100% name="ItemCol" datasrc="#CalList1" style="">
+<tr>
+<td nowrap valign=top width=10px align=left><div datafld="Next" DATAFORMATAS="html"></DIV></TD>
+<td valign=top nowrap><DIV DATAFLD="StartEnd" DATAFORMATAS="html" class=CalendarStartEnd >*</DIV></TD>
+<td valign=top width=100%><div datafld="SubjectLocation" DATAFORMATAS="html" class=CalendarSubjectLocation>*</DIV></TD>
+</tr>
+</table>
+
+<table id=CalendarStaticTable1 border=0 cellspacing=1 cellpadding=2 valign=top width=100%>
+<!-- RENSTATICTABLE~Calendar~Next=nowrap valign=top width=10px align=left~StartEnd=valign=top nowrap ~SubjectLocation=valign=top width=100%~ -->
+</table>
+
+<!-- personal tasks folder -->
+<br>
+<table cellpadding=2 cellspacing=0 border=0 width=100%>
+<tr>
+<td><div style='margin-left:2px'>*</div></td>
+<td id=TaskHdrCell1 class=component child=TasksHeader1
+vAlign=bottom width=100% nowrap>
+*<a id=TasksHeader1 href="outlook:\\Tasks" onclick="window.event.cancelBubble=true;" class=componentLink>My Tasks</a>
+</td>
+</tr>
+</table>
+<br>
+<table border=0 name="TaskCol" cellspacing=0 id=TasksLiveTable1 datasrc="#TaskList1" width=100% style="">
+<tbody>
+<tr>
+<td><div style='margin-left:2px'>*</div></td>
+<td width=1px><INPUT TYPE=checkbox DATAFORMATAS="Text" DATAFLD="Complete" height=20px></TD>
+<td width=1px><DIV DATAFLD="Importance" DATAFORMATAS="html" class=TaskImportance></DIV></TD>
+<td><DIV DATAFLD="Subject" DATAFORMATAS="html" class=TaskSubject></DIV></TD>
+</tr>
+</tbody>
+</table>
+
+<table border=0 id=TasksStaticTable1 cellspacing=0 width=100%>
+<!-- RENSTATICTABLE~Tasks~!Complete=width=20px height=22px~Importance=width=1px~Subject=~ -->
+</table>
+</td>
+
+<td width=12px class=borderRight><img src="images\gap.gif" width=12px border=0></td>
+<td width=12px><img src="images\gap.gif" width=12px border=0></td>
+
+<!-- Public Section Begins -->
+<!-- public calendar folder -->
+<td valign=top width=47%>
+<table cellpadding=2 cellspacing=0 width=100%>
+<tr>
+<td id=CellCalHdr2 class=component child=CalendarHeader2
+vAlign=bottom width=100% nowrap>
+*<a id=CalendarHeader2 href="outlook:\\Public Folders\All Public Folders\JEI Calendar" onclick="window.event.cancelBubble=true;" class=componentLink>JEI Calendar</a>
+</td>
+</tr>
+</table>
+<br>
+<table id=CalendarLiveTable2 border=0 cellspacing=1 cellpadding=2 valign=top width=100% name="ItemCol" datasrc="#CalList2" style="">
+<tr>
+<td nowrap valign=top width=10px align=left><div datafld="Next" DATAFORMATAS="html"></DIV></TD>
+<td valign=top nowrap><DIV DATAFLD="StartEnd" DATAFORMATAS="html" class=CalendarStartEnd >*</DIV></TD>
+<td valign=top width=100%><div datafld="SubjectLocation" DATAFORMATAS="html" class=CalendarSubjectLocation>*</DIV></TD>
+</tr>
+</table>
+
+<table id=CalendarStaticTable2 border=0 cellspacing=1 cellpadding=2 valign=top width=100%>
+<!-- RENSTATICTABLE~Calendar~Next=nowrap valign=top width=10px align=left~StartEnd=valign=top nowrap ~SubjectLocation=valign=top width=100%~ -->
+</table>
+
+<!-- public tasks folder -->
+<br>
+<table cellpadding=2 cellspacing=0 width=100%>
+<tr>
+<td id=TaskHdrCell2 class=component child=TasksHeader2
+vAlign=bottom width=100% nowrap>
+*<a id=TasksHeader2 href="outlook:\\Public Folders\All Public Folders\JEI Tasks" onclick="window.event.cancelBubble=true;" class=componentLink>JEI Tasks</a>
+</td>
+</tr>
+</table>
+<br>
+<table border=0 name="TaskCol" cellspacing=0 id=TasksLiveTable2 datasrc="#TaskList2" width=100% style="">
+<tbody>
+<tr>
+<td width=1px><INPUT TYPE=checkbox DATAFORMATAS="Text" DATAFLD="Complete" height=20px></TD>
+<td width=1px><DIV DATAFLD="Importance" DATAFORMATAS="html" class=TaskImportance></DIV></TD>
+<td><DIV DATAFLD="Subject" DATAFORMATAS="html" class=TaskSubject></DIV></TD>
+</tr>
+</tbody>
+</table>
+
+<table border=0 id=TasksStaticTable3 cellspacing=0 width=100%>
+<!-- RENSTATICTABLE~Tasks~!Complete=width=20px height=22px~Importance=width=1px~Subject=~ -->
+</table>
+</td>
+
+<td width=12px><img src="images\gap.gif" width=12px border=0><img src="images\gap.gif" width=12px border=0></td>
+</tr>
+</table>
+<br>
+</div>
+<div class="today">Google Map</div>
+<div class="today3">
+<br><iframe src="http://www.jeicivil.com/earth/map.html" scrolling="no" align="center" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" width="800" height="600" ></iframe>
+</div>
+
+<!--
+------------------------------------------------------------------------
+SCRIPT
+------------------------------------------------------------------------
+-->
+
+<!-- This script block runs after the window has finished loading
+(and after the datasource controls have rendered themselves)
+Thus it should be used for frosting that does not effect the
+page's core functionality. -->
+<script defer for=window event=onload language="JavaScript">
+
+///////////////////////////////////////////////////////////////////////////
+// Displays the date in the banner
+
+try
+{
+document.all.dateScript.innerHTML = window.external.GetDate();
+}
+catch(err)
+{
+document.all.date.width = "100%";
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//Event Handling Functions
+
+document.onmouseover = rollOn
+document.onmouseout = rollOff
+
+function rollOn() {
+var e;
+var child;
+
+try
+{
+e = window.event.srcElement;
+child = document.all[e.getAttribute("child", false)];
+switch ( e.className )
+{
+case 'options':
+{
+OptionsCell.className = "button2over";
+}
+break;
+
+case 'itemNormal':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+
+case 'allDayEvent':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+case 'allDayEventTimes':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+case 'times':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+
+case 'ApptPast':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+
+case 'PastTimes':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+
+case 'itemImportant':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+
+case 'TskDone':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+
+case 'componentLink':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+
+case 'link':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+case 'SplitDay':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+case 'SplitDayTimes':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+case 'Folder':
+{
+e.style.textDecorationUnderline = true;
+}
+break;
+}
+window.event.cancelBubble = true;
+}
+catch(err)
+{
+
+}
+}
+
+function rollOff() {
+var e;
+var child;
+
+try
+{
+e = window.event.srcElement;
+child = document.all[e.getAttribute("child", false)];
+
+switch ( e.className )
+{
+case 'options':
+{
+OptionsCell.className = "button2";
+}
+break;
+
+case 'itemNormal':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+
+case 'allDayEvent':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+case 'allDayEventTimes':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+case 'times':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+
+case 'ApptPast':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+
+case 'PastTimes':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+
+case 'itemImportant':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+
+case 'TskDone':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+case 'componentLink':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+
+case 'link':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+case 'SplitDay':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+case 'SplitDayTimes':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+case 'Folder':
+{
+e.style.textDecorationUnderline = false;
+}
+break;
+
+}
+
+window.event.cancelBubble = true;
+}
+catch(err)
+{
+}
+}
+
+</script>
+</BODY>
+</HTML>

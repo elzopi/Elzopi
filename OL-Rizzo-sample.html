@@ -1,0 +1,96 @@
+<!DOCTYPE HTMLPUBLIC"-//W3C//DTDHTML4.0Transitional//EN">
+<HTML><HEAD>
+<META content="text/html;charset=unicode" http-equiv=Content-Type>
+<META content="MSHTML5.00.2919.3800" name=GENERATOR></HEAD>
+<BODY>
+<P>
+This sample shows how you can use Open Shared Default Folder:
+<BR><BR>
+<INPUT id=AddressBook name=AddBook type=button value="AddressBook" 
+onclick="ShowAddBook()">
+</P>
+<SPANID=View1>
+<OBJECT classid=clsid:0006F063-0000-0000-C000-000000000046 height="100%"
+id=OVCtl1 width="30%" VIEWASTEXT>
+<PARAM NAME="View" VALUE=""><PARAM NAME="Folder" VALUE=""><param name="Namespace"VALUE="MAPI">
+<param name="Restriction" VALUE="">
+<param name="DeferUpdate" VALUE="0">
+</OBJECT>
+</SPAN>
+<SPANID=View2>
+<OBJECT classid=clsid:0006F063-0000-0000-C000-000000000046 height="100%" 
+id=OVCtl2 width="30%" VIEWASTEXT><param name="View"VALUE=""><
+param name="Folder"VALUE=""><param name="Namespace"VALUE="MAPI"><
+param name="Restriction"VALUE=""><param name="DeferUpdate"VALUE="0"></
+OBJECT>
+</SPAN>
+<SPANID=View3>
+<OBJECT classid=clsid:0006F063-0000-0000-C000-000000000046 height="100%"
+id=OVCtl3 width=30% VIEWASTEXT><param name="View"VALUE=""><
+param name="Folder"VALUE=""><param name="Namespace"VALUE="MAPI">
+<param name="Restriction"VALUE=""><param name="DeferUpdate"VALUE="0"></
+OBJECT>
+</SPAN>
+
+<SCRIPTID=clientEventHandlersVBS LANGUAGE=vbscript>
+
+'******************************************************
+'Inlinecode
+'
+'Theselinesofcodearerunwhenthebrowserreaches
+'themwhenparsingthedocument.Theysetuptheglobal
+'variablesthatareneededthroughouttheapplication.
+'******************************************************
+Set oApplication=window.external.OutlookApplication
+'LogontoCDO
+'UseCDOtopopupanAddressbooksothatthepersoncanselect
+'theusertheywanttoopenthecalendarfor
+Set oSession=oApplication.CreateObject("MAPI.Session")
+oSession.Logon "","",False,False
+iNumFolders=0
+
+Sub ShowAddBook()
+OnError Resume Next'tocatchthecancel
+Set oRecips=oSession.AddressBook(,"SelectaUser",True,_
+True,1,"User")
+If oRecips.Count<>0 Then
+OnError GoTo0
+str RecipName=oRecips.Item(1).Name
+IfiNumFolders=0 Then
+OnError ResumeNext
+Err.Clear
+OVCtl1.OpenSharedDefaultFolderstrRecipName,9
+If Err.Number=0 Then
+
+'Bumpupthefoldercount
+iNumFolders=iNumFolders+1
+Else
+MsgBox "Error:"&Err.Number&""&Err.Description
+EndIf
+Else If iNumFolders=1 Then
+OnErrorResumeNext
+Err.Clear
+OVCtl2.OpenSharedDefaultFolderstrRecipName,9
+IfErr.Number=0 Then
+'Bumpupthefoldercount
+iNumFolders=iNumFolders+1
+Else
+MsgBox"Error:"&Err.Number&""&Err.Description
+EndIf
+Else If iNumFolders=2 Then
+OnErrorResumeNext
+Err.Clear
+OVCtl3.OpenSharedDefaultFolderstrRecipName,9
+If Err.Number=0 Then
+'Bumpupthefoldercount
+iNumFolders=iNumFolders+1
+Else
+MsgBox"Error:"&Err.Number&""&Err.Description
+EndIf
+Else
+MsgBox"Nomoreviewcontrolsleft!"
+EndIf
+EndIf
+EndSub
+</SCRIPT></P>
+</BODY></HTML>
