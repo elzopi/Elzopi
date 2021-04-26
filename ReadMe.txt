@@ -1,4 +1,4 @@
-ReadMe for customized Outlook Today by Felix Reta, Epsitel Corporation, all rights reserved 2007.
+ReadMe for customized Outlook Today by Felix Reta, Epsitel Corporation, all rights reserved 2007-2021.
 
 Loosely based from the original MSNBC outlook today that has been sunset.
 Tested with Outlook 2003, Windows XP.
