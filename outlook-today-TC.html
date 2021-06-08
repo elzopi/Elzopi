@@ -1,14 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 
+<!-- Outlook Today by Felix Reta felix.reta@gmail.com 2000-2021
+Please be professional and mention me if you use this code
+Started customizing since Outlook 98, it has been successfully implemented up to OL 2016
+To implement you need to modify the registry, thanks slipstick.com:
+Make a backup of your system registry.
+Run the Registry Editor (regedit.exe).
+Navigate to the HKEY_CURRENT_USER\Software\Microsoft\Office\xx.0\Outlook\Today subkey. (Where xx = your version of Outlook.)
+Create a new STRING value, named URL.
+For the value of URL, enter the address of the web page you want to view when you click Outlook Today. 
+There is a variety of web portions that I added, please check the corresponding section in the html code that follows
+Added background blending and color to match Porsche 917 livery
+Added picture horizontal list to select the top margin picture to appear
+Modified pictures for Fiserv use
+-->
+
+
 <html>
 <head>
 
 <style>
 
-a				{color:windowtext;}
 
-body			{margin-top:0px;margin-right:0px;margin-left:0px;}
+<!-- Added background-color to match table css -->
+body			{margin-top:0px;margin-right:0px;margin-left:0px;background-color:#e5f5fb;}
 
+table {
+background-color: #e5f5fb;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+<!-- Added to have hidden pix list with no extra space -->
+ul{ margin-top:0; margin-bottom:0 }
 
 .CalendarSubjectLocation  		{} 
 
@@ -20,7 +44,7 @@ body			{margin-top:0px;margin-right:0px;margin-left:0px;}
 
 .options		      {color:black;font-family:Tahoma;font-size:8pt;text-decoration:none;}
 
-.date			      {margin-bottom:4px;color:black;font-family:Arial;
+.date			      {margin-bottom:4px;color:Indigo;font-family:Arial;
 			            font-size:11pt;font-weight:bold; }
 
 .itemNormal 		{font-size:8pt;	font-family:Tahoma; text-decoration:none;color:windowtext; } 
@@ -56,7 +80,7 @@ body			{margin-top:0px;margin-right:0px;margin-left:0px;}
 
 .ApptPast		   {color:buttonshadow; }   
 
-.Folder			   {color:pink;font-weight:bold; font-family:Tahoma;font-size:8pt;text-decoration:none; }
+.Folder			   {color:Indigo;font-weight:bold; font-family:Tahoma;font-size:8pt;text-decoration:none; }
 
 .NextAppt	 	   {font-family:Marlett;font-size:10pt;line-height:12pt;font-weight:bold;
 				         text-decoration:none;color:darkred; }
@@ -69,7 +93,8 @@ body			{margin-top:0px;margin-right:0px;margin-left:0px;}
 
 TD                {font-family:tahoma; font-size:8pt;}
 
-.component        { background-color:pink; height:16px; color:windowtext;cursor:hand;
+<-- after adding background-color to body and table, background color pink was overriden -->
+.component        { background-color:OrangeRed; height:16px; color:windowtext;cursor:hand;
 		                  font-family:Tahoma; font-size:8pt;font-weight:bold;}
 .componentLink    { text-decoration:none; }
 .borderBottom     {
@@ -130,6 +155,8 @@ TD                {font-family:tahoma; font-size:8pt;}
 			border-left-color:gray;
 
 		}
+
+
 </STYLE>
 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -148,7 +175,7 @@ TD                {font-family:tahoma; font-size:8pt;}
 <PARAM NAME="Module" VALUE="Inbox"></OBJECT>
 
 <OBJECT ID="FollowUp" CLASSID="CLSID:0468C085-CA5B-11D0-AF08-00609797F0E0">
-<PARAM NAME="Folder" VALUE="Search Folders\Follow Up">
+<PARAM NAME="Folder" VALUE="Search Folders\For Follow Up">
 
 </OBJECT>
 
@@ -157,7 +184,7 @@ TD                {font-family:tahoma; font-size:8pt;}
         height="430" border="1"
         Codebase="http://activex.microsoft.com/activex/controls/office/outlctlx.CAB#ver=9,0,0,3203">>
 <param name="Namespace" value="MAPI">
-<param name="Folder" value="Search Folders\Follow Up">
+<param name="Folder" value="Search Folders\For Follow Up">
 <!-- <param name="View" value="Sent To" -->
 <param name="Restriction" value="">
 <param name="DeferUpdate" value="0">
@@ -169,23 +196,103 @@ TD                {font-family:tahoma; font-size:8pt;}
 <param name="Folder" value="Search Folders\Follow Up">
 <param name="Namespace" value="MAPI">
 <param name="Restriction" value><param name="DeferUpdate" value="0">
-<PARAM NAME="Module" VALUE="Follow Up">
+<PARAM NAME="Module" VALUE="For Follow Up">
 </OBJECT>
 -->
 
+<!-- Disabled, giving issues for property during queryselect in OL2016
+<script>
+function clock() {// We create a new Date object and assign it to a variable called "time".
+var time = new Date(),
+    
+    // Access the "getHours" method on the Date object with the dot accessor.
+    hours = time.getHours(),
+    
+    // Access the "getMinutes" method with the dot accessor.
+    minutes = time.getMinutes(),
+    
+    
+    seconds = time.getSeconds();
+document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+  
+  function harold(standIn) {
+    if (standIn < 10) {
+      standIn = '0' + standIn
+    }
+    return standIn;
+  }
+}
+setInterval(clock, 1000);
+</script>
+-->
+
+
 </HEAD>
 <BODY>
+
 <TABLE border=0 cellPadding=0 cellSpacing=0 width=100% bgcolor=#FA5882>
   <TR>
-      <td id=outlook_align1 height=28 valign=top width=120px align=left>
-         <img id=outlook_align2 src=Porsche-917-b.jpg border=0 align=left valign=top hspace=0 vspace=0 height=40px> 
+      
+<!-- use 1969-Porsche-917-3.jpg for non animated picture -->
+<!-- use VW Golf MK2 GTI front blk.png for GTI front picture -->
+<!-- use VW 1958 transp.jpg for picture -->
+<!-- use P71 transp.png picture -->
+<!-- use Schnauzers poster transp.png for background -->
+<!-- use Golf evolution silhouette transp.png for background -->
+
+
+
+<!-- Added horizontal list to pick your top margin graphic -->
+
+<script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+    <ul style="list-style: none; font-family: Verdana, Arial, Helvetica, sans-serif; color:WhiteSmoke">
+        <li title="Gulf Porsche 917" onclick="LoadImage(P917)" style="cursor: pointer; font-size: 10; display: inline">917</li>
+		<li title="GTI" onclick="LoadImage(GTI)" style="cursor: pointer; font-size: 10; display: inline">GTI</li>
+		<li title="Vocho" onclick="LoadImage(Vocho)" style="cursor: pointer; font-size: 10; display: inline">Vocho</li>
+		<li title="P71" onclick="LoadImage(P71)" style="cursor: pointer; font-size: 10; display: inline">P71</li>
+    </ul>
+
+
+<!--      <img src="#"  alt="" title="" id="TCImg"/>  -->
+
+<td id=Top_Margin_Image height=40 valign=top width=120px align=left>
+<!-- src="#" renders a square "X" (e.g. no default image), using src="[IMAGE FILE]" serves as default and is overriden by LoadImage -->
+         <img id=TCImg src="1969-Porsche-917-3.jpg" border=0 align=left valign=top hspace=0 vspace=0 height=100px> 
+            <script>
+            
+            function LoadImage ( src_ ) {
+                  
+              document.getElementById('TCImg').src = src_;
+              
+            }
+		var P917 = "1969-Porsche-917-3.jpg";
+                var GTI = "VW Golf MK2 GTI front blk.png";
+                var Vocho ="VW 1958 transp.jpg";            
+		var P71 = "P71 transp.png";
+                
+        </script>
       </td>
-  <td id=outlook_align2 align=center valign=top>
-<script type="text/javascript" src="http://www.brainyquote.com/link/quotebr.js"></script><small></small>
+  <td id=Daily_Quote align=center valign=center height=60px>
+  
+<!-- use quotebr.js for normal daily quotes, quotefu.js for funny,  quotear.js for art, quotelo.js for love, quotena.js for nature, quotebr.js for brainy -->
+<script type="text/javascript" src="http://www.brainyquote.com/link/quotefu.js"></script><small></small>
   </td>
-      <TD height=28 noWrap valign=center align=left>
+      <TD height=28 noWrap valign=center align=center>
          <div id=dateScript class=date></div>
+
+<!-- Analog clock
+	<TD height=40 nowrap valign=center align=center>
+<iframe src="http://free.timeanddate.com/clock/i65k4mbt/n820/szw60/szh60/hocf00/hbw8/cf100/hnce1ead6" frameborder="0" width="60" height="60"></iframe>
       </TD>
+end of Analog clock
+-->
+<!-- This is a digital clock right below the date  -->
+
+<iframe src="http://free.timeanddate.com/clock/i6fp473b/n3546/fc4b0082/fn12/fs20/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="120" height="30" allowTransparency="true"></iframe>
+
+<!--  OLD CODE, Too small for high resolution
+<iframe src="http://free.timeanddate.com/clock/i65k34x9/n263/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="100" height="40" allowTransparency="true"></iframe>
+-->
 
 <!-- Next code segment is commented out to get rid of the "customize Outlook Today" option -->
 
@@ -219,7 +326,7 @@ TD                {font-family:tahoma; font-size:8pt;}
 
 </TABLE>
 
-<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<table background="Golf evolution silhouette transp.png" border=0 cellspacing=0 cellpadding=0 width=100%>
 <tr><td colspan=9 width=12px>&nbsp;</td></tr>
   <tr>
 <!-- Calendar begins -->
@@ -262,7 +369,7 @@ TD                {font-family:tahoma; font-size:8pt;}
 		         <TD id=TaskHdrCell class=component child=TasksHeader 
                                  onclick="window.document.location.href='outlook:tasks';window.event.returnValue=false;"
 				 vAlign=bottom width=100% nowrap>
-				&nbsp;<a id=TasksHeader href="outlook:tasks" onclick="window.event.cancelBubble=true;" class=componentLink>To Do</a>
+				&nbsp;<a id=TasksHeader href="outlook:tasks" onclick="window.event.cancelBubble=true;" class=componentLink>Aufgabenliste</a>
 	            </TD>
             </tr>
          </table>
@@ -329,7 +436,10 @@ TD                {font-family:tahoma; font-size:8pt;}
   </tr>
 </table>
 
-
+<!-- Inserting team calendar frame -->
+<!-- Did not render correctly 
+<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23B39DDB&amp;ctz=America%2FNew_York&amp;src=bWFnaWNsZWFwLmNvbV9kZm1rOXBkNWxscGMzZGM2ZGNzaDcxbmtuc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV84cWc1bDZndTR0bnJhMmZtYWNkNm80ZGVka0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV8xamVscm43Mzk3OHRta2RsYW9uazE1cjZoa0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV9zdjQ5aGwyZXZjczJ1bXIwNnFhcTNqcjdpc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV92MGtjN204NWtnajdqYTR0NTJxM3VwdDdvZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV83YjdsaGQzNWJsMDEzN2FvNTBoczdlam00NEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV9kbWhpam1kc2NoZTM3cnFkMjVic3ByODF0Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV9vaXY0M2ViZTZsdHQ5MGE3N3JldWdkcmx1MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV8wZnRyaG4zOWdoa3BtZDdlazRjdDVuNWVob0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV9qcWV0MGk2dm5rMHU1MG5mdW9rOGZrMmYzMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV82cTZlNTkyMWdlN3MyZTRvMzZvbHBvYTBjNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bWFnaWNsZWFwLmNvbV9zazFoZ3BpZGtianNvOGxkdXRyZzkwZWpqOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=dHNzdGVhbWNhbGVuZGFyQG1hZ2ljbGVhcC5jb20&amp;color=%235A9A08&amp;color=%233366CC&amp;color=%23402175&amp;color=%23D6AE00&amp;color=%2370237F&amp;color=%23336699&amp;color=%23402175&amp;color=%233366CC&amp;color=%2370237F&amp;color=%23871111&amp;color=%236633CC&amp;color=%2370237F&amp;color=%231F753C&amp;color=%23AA5A00&amp;mode=WEEK&amp;title=TSS%20Team%20calendar&amp;showCalendars=1" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+-->
 
 <!--
   ------------------------------------------------------------------------
