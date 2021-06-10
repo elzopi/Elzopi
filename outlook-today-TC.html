@@ -13,6 +13,7 @@ There is a variety of web portions that I added, please check the corresponding 
 Added background blending and color to match Porsche 917 livery
 Added picture horizontal list to select the top margin picture to appear
 Modified pictures for Fiserv use
+Harmonized table entries, list entries to match style, eliminating redundant parameters using CSS
 -->
 
 
@@ -29,10 +30,21 @@ table {
 background-color: #e5f5fb;
 margin-top: 0px;
 margin-bottom: 0px;
+cellPadding:0;
+cellSpacing:0;
+border:0;
+width:100%
+background-repeat: no-repeat;
+
 }
 
 <!-- Added to have hidden pix list with no extra space -->
 ul{ margin-top:0; margin-bottom:0 }
+<!-- Added li attributes -->
+ul li {font-size: 10;
+		display: inline;
+		cursor: pointer;
+	}
 
 .CalendarSubjectLocation  		{} 
 
@@ -157,6 +169,28 @@ TD                {font-family:tahoma; font-size:8pt;}
 		}
 
 
+
+
+<!-- Added for table backgrounds -->
+pre {
+  tab-width: 96;
+}
+p {text-indent: 5em;}
+
+.cellImage {
+  width: 100%;
+  text-align: left;
+  border: none;
+  }
+.cellImage td { 
+  width:100%;
+  height:0px;
+  padding:0px; 
+  background-image: url("Golf evolution silhouette transp.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  }
+
 </STYLE>
 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -193,7 +227,7 @@ TD                {font-family:tahoma; font-size:8pt;}
 
 <!-- from other tips
 <OBJECT ID="FollowUp" classid=CLSID:0006F063-0000-0000-C000-000000000046 id=ViewCtlFolder width="600" height="650">
-<param name="Folder" value="Search Folders\Follow Up">
+<param name="Folder" value="Search Folders\For Follow Up">
 <param name="Namespace" value="MAPI">
 <param name="Restriction" value><param name="DeferUpdate" value="0">
 <PARAM NAME="Module" VALUE="For Follow Up">
@@ -230,26 +264,23 @@ setInterval(clock, 1000);
 </HEAD>
 <BODY>
 
-<TABLE border=0 cellPadding=0 cellSpacing=0 width=100% bgcolor=#FA5882>
+<table>
+<!-- <TABLE border=0 cellPadding=0 cellSpacing=0 width=100% bgcolor=#FA5882> MOVED TO CSS -->
   <TR>
       
 <!-- use 1969-Porsche-917-3.jpg for non animated picture -->
 <!-- use VW Golf MK2 GTI front blk.png for GTI front picture -->
 <!-- use VW 1958 transp.jpg for picture -->
 <!-- use P71 transp.png picture -->
-<!-- use Schnauzers poster transp.png for background -->
-<!-- use Golf evolution silhouette transp.png for background -->
-
-
 
 <!-- Added horizontal list to pick your top margin graphic -->
 
 <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
     <ul style="list-style: none; font-family: Verdana, Arial, Helvetica, sans-serif; color:WhiteSmoke">
-        <li title="Gulf Porsche 917" onclick="LoadImage(P917)" style="cursor: pointer; font-size: 10; display: inline">917</li>
-		<li title="GTI" onclick="LoadImage(GTI)" style="cursor: pointer; font-size: 10; display: inline">GTI</li>
-		<li title="Vocho" onclick="LoadImage(Vocho)" style="cursor: pointer; font-size: 10; display: inline">Vocho</li>
-		<li title="P71" onclick="LoadImage(P71)" style="cursor: pointer; font-size: 10; display: inline">P71</li>
+        <li title="Gulf Porsche 917" onclick="LoadImage(P917)">917</li>
+		<li title="GTI" onclick="LoadImage(GTI)">GTI</li>
+		<li title="Vocho" onclick="LoadImage(Vocho)">Vocho</li>
+		<li title="P71" onclick="LoadImage(P71)">P71</li>
     </ul>
 
 
@@ -265,18 +296,23 @@ setInterval(clock, 1000);
               document.getElementById('TCImg').src = src_;
               
             }
-		var P917 = "1969-Porsche-917-3.jpg";
-                var GTI = "VW Golf MK2 GTI front blk.png";
-                var Vocho ="VW 1958 transp.jpg";            
-		var P71 = "P71 transp.png";
+			var P917 = "1969-Porsche-917-3.jpg";
+			var GTI = "VW Golf MK2 GTI front blk.png";
+			var Vocho ="VW 1958 transp.jpg";            
+			var P71 = "P71 transp.png";
                 
-        </script>
+			</script>
       </td>
   <td id=Daily_Quote align=center valign=center height=60px>
   
 <!-- use quotebr.js for normal daily quotes, quotefu.js for funny,  quotear.js for art, quotelo.js for love, quotena.js for nature, quotebr.js for brainy -->
 <script type="text/javascript" src="http://www.brainyquote.com/link/quotefu.js"></script><small></small>
   </td>
+  
+<!-- Added an empty TR for design -->
+
+	<td height=28 nowrap valign=center align=center> <p>&nbsp;<p>&nbsp; 
+	</td>
       <TD height=28 noWrap valign=center align=center>
          <div id=dateScript class=date></div>
 
@@ -288,7 +324,7 @@ end of Analog clock
 -->
 <!-- This is a digital clock right below the date  -->
 
-<iframe src="http://free.timeanddate.com/clock/i6fp473b/n3546/fc4b0082/fn12/fs20/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="120" height="30" allowTransparency="true"></iframe>
+<iframe src="http://free.timeanddate.com/clock/i6fp473b/n3546/fc4b0082/fn12/fs20/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="120" height="30" allowTransparency="true" align=center></iframe>
 
 <!--  OLD CODE, Too small for high resolution
 <iframe src="http://free.timeanddate.com/clock/i65k34x9/n263/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="100" height="40" allowTransparency="true"></iframe>
@@ -297,7 +333,7 @@ end of Analog clock
 <!-- Next code segment is commented out to get rid of the "customize Outlook Today" option -->
 
 <!--      <TD id=outlook_align3 height=28 noWrap vAlign=bottom align=right>
-	<table border=0 cellpadding=1 id=topbuttons1 height=20px>
+	<table cellpadding=1 id=topbuttons1 height=20px>
 	   <tr>
 	     <td valign=top>
 	      <div id=OptionsCell class=button2 style="line-height:13pt;width:100%;"
@@ -326,34 +362,43 @@ end of Analog clock
 
 </TABLE>
 
-<table background="Golf evolution silhouette transp.png" border=0 cellspacing=0 cellpadding=0 width=100%>
-<tr><td colspan=9 width=12px>&nbsp;</td></tr>
+<!-- Miniature Schnauzer transp.png
+	 Golf evolution silhouette transp.png
+	 Schnauzer icons transp.png
+	 Miniature Schnauzer transp.png
+ -->
+
+ <table background="Schnauzer icons transp.png">
+
+<!-- <table class="cellImage"> -->
+<!-- <tr><td colspan=9 width=12px>&nbsp;</td></tr> -->
   <tr>
 <!-- Calendar begins -->
       <td valign=top width=47%>
-	      <table cellpadding=2 cellspacing=0 border=0 width=100%>
+	  
+	    <table>
 	         <TR>
-			      <td><div style='margin-left:9px'>&nbsp;</div></td>
+			      <td><div style='margin-left:9px'></div></td>
 		         <TD id=CellCalHdr class=component child=CalendarHeader 
 			onclick="window.document.location.href='outlook:calendar';window.event.returnValue=false;"
 			vAlign=bottom width=100% nowrap>					
-                  		&nbsp;<a id=CalendarHeader href="outlook:calendar" onclick="window.event.cancelBubble=true;" class=componentLink>Kalender</a>
+                  		<a id=CalendarHeader href="outlook:calendar" onclick="window.event.cancelBubble=true;" class=componentLink>Kalender</a>
 	            </TD>
             </tr>
-         </table>
+        </table>
       <br>	
-	   <table id=CalendarLiveTable border=0 cellspacing=1 cellpadding=2 valign=top width=100% name="ItemCol" datasrc="#CalList" style="display:;">
+	   <table id=CalendarLiveTable cellspacing=1 valign=top name="ItemCol" datasrc="#CalList" style="display:;">
 		   <tr>
 	           
 		      <td nowrap valign=top width=10px align=left><div datafld="Next" DATAFORMATAS="html"></DIV></TD>
-				   <td valign=top nowrap><DIV DATAFLD="StartEnd" DATAFORMATAS="html" class=CalendarStartEnd >&nbsp;</DIV></TD>
+				   <td valign=top nowrap><DIV DATAFLD="StartEnd" DATAFORMATAS="html" class=CalendarStartEnd ></DIV></TD>
                	       			
-				   <td valign=top width=100%><div datafld="SubjectLocation" DATAFORMATAS="html" class=CalendarSubjectLocation>&nbsp;</DIV></TD>
+				   <td valign=top width=100%><div datafld="SubjectLocation" DATAFORMATAS="html" class=CalendarSubjectLocation></DIV></TD>
                
 			   </tr>
 	   </table>
 	
-		<TABLE id=CalendarStaticTable border=0 cellspacing=1 cellpadding=2 valign=top width=100%>
+		<TABLE id=CalendarStaticTable cellspacing=1 valign=top>
 			<!-- RENSTATICTABLE~Calendar~Next=nowrap valign=top width=10px align=left~StartEnd=valign=top nowrap ~SubjectLocation=valign=top width=100%~ -->
 		</table>
   
@@ -364,17 +409,18 @@ end of Analog clock
        <td width=12px><img src=gap.gif width=12px border=0></td>
      <!-- Tasks begins -->
       <td valign=top width=33%>
-	      <table  cellpadding=2 cellspacing=0 width=100%>
+	      <table width=100%>
+
 	         <TR>
 		         <TD id=TaskHdrCell class=component child=TasksHeader 
                                  onclick="window.document.location.href='outlook:tasks';window.event.returnValue=false;"
 				 vAlign=bottom width=100% nowrap>
-				&nbsp;<a id=TasksHeader href="outlook:tasks" onclick="window.event.cancelBubble=true;" class=componentLink>Aufgabenliste</a>
+				<a id=TasksHeader href="outlook:tasks" onclick="window.event.cancelBubble=true;" class=componentLink>Aufgabenliste</a>
 	            </TD>
             </tr>
-         </table>
+        </table>
          <br>
-		   <TABLE border=0 name="TaskCol" cellspacing=0 id=TasksLiveTable datasrc="#TaskList" width=100% style="display:;">
+		   <TABLE name="TaskCol" id=TasksLiveTable datasrc="#TaskList" style="display:;">
 			   <TBODY>	
 			    <TR>
 			    	<TD width=1px><INPUT TYPE=checkbox DATAFORMATAS="Text" DATAFLD="Complete" height=20px></TD>
@@ -384,7 +430,7 @@ end of Analog clock
 			   </TBODY>
 		   </TABLE>
 
-		<table border=0 id=TasksStaticTable cellspacing=0 width=100%>
+		<table border=0 id=TasksStaticTable>
 			<!-- RENSTATICTABLE~Tasks~!Complete=width=20px height=22px~Importance=width=1px~Subject=~ -->
 		</table>
 
@@ -399,23 +445,22 @@ end of Analog clock
 
 <!-- Mail begins -->
       <td valign=top width=20%>
-	      <table cellpadding=2 cellspacing=0 width=100%>
+	      <table width=100%>
 	         <TR>
 		  <TD id=CellMail class=component child=MailHeader
 			onclick="window.document.location.href='outlook:inbox';window.event.returnValue=false;" 
 			vAlign=bottom width=100% nowrap>
-		        &nbsp;<a id=MailHeader href="outlook:inbox" onclick="window.event.cancelBubble=true;" class=componentLink>Mail</a>
+		        <a id=MailHeader href="outlook:inbox" onclick="window.event.cancelBubble=true;" class=componentLink>Mail</a>
 	            </TD>
             </tr>
 
-         </table>
+			</table>
 
 
 
 
          <br>
-	      <table border=0 name="MailCol" id=InboxLiveTable datasrc="#MailList" cellspacing=0 width=100%
-				style="display:;">
+	      <table name="MailCol" id=InboxLiveTable datasrc="#MailList" style="display:; width=100%">
 	         <tbody>	
 			      <tr>
 				      <td id=folder_name align=left valign=top class=borderBottom><DIV  DATAFLD="Name" DATAFORMATAS="html" class=Folder></DIV></td>
@@ -428,11 +473,11 @@ end of Analog clock
 
 
 
-	      <table id=InboxStaticTable border=0 cellspacing=0 width=100%>
+	      <table id=InboxStaticTable>
 		      <!-- RENSTATICTABLE~Inbox~Name=align=left class=borderBottom valign=top~Count=class=borderBottom  align=right valign=top nowrap~ -->
 	      </table>
       </td>
-      <td width=12px><img src=gap.gif width=12px border=0></td> 
+     <!-- <td width=12px><img src=gap.gif width=12px border=0></td>  -->
   </tr>
 </table>
 
