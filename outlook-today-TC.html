@@ -106,7 +106,7 @@ ul li {font-size: 10;
 TD                {font-family:tahoma; font-size:8pt;}
 
 <-- after adding background-color to body and table, background color pink was overriden -->
-.component        { background-color:OrangeRed; height:16px; color:windowtext;cursor:hand;
+.component        { background-color:Tomato; height:16px; color:windowtext;cursor:hand;
 		                  font-family:Tahoma; font-size:8pt;font-weight:bold;}
 .componentLink    { text-decoration:none; }
 .borderBottom     {
@@ -272,12 +272,14 @@ setInterval(clock, 1000);
 <!-- use VW Golf MK2 GTI front blk.png for GTI front picture -->
 <!-- use VW 1958 transp.jpg for picture -->
 <!-- use P71 transp.png picture -->
+<!-- use fiserv_logo_orange_rgb.png -->
 
 <!-- Added horizontal list to pick your top margin graphic -->
 
 <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
     <ul style="list-style: none; font-family: Verdana, Arial, Helvetica, sans-serif; color:WhiteSmoke">
-        <li title="Gulf Porsche 917" onclick="LoadImage(P917)">917</li>
+        <li title="Fiserv" onclick="LoadImage(FS)">FiServ</li>
+		<li title="Gulf Porsche 917" onclick="LoadImage(P917)">917</li>
 		<li title="GTI" onclick="LoadImage(GTI)">GTI</li>
 		<li title="Vocho" onclick="LoadImage(Vocho)">Vocho</li>
 		<li title="P71" onclick="LoadImage(P71)">P71</li>
@@ -288,7 +290,7 @@ setInterval(clock, 1000);
 
 <td id=Top_Margin_Image height=40 valign=top width=120px align=left>
 <!-- src="#" renders a square "X" (e.g. no default image), using src="[IMAGE FILE]" serves as default and is overriden by LoadImage -->
-         <img id=TCImg src="1969-Porsche-917-3.jpg" border=0 align=left valign=top hspace=0 vspace=0 height=100px> 
+         <img id=TCImg src="fiserv_logo_orange_rgb.png" border=0 align=left valign=top hspace=0 vspace=0 height=100px> 
             <script>
             
             function LoadImage ( src_ ) {
@@ -300,6 +302,7 @@ setInterval(clock, 1000);
 			var GTI = "VW Golf MK2 GTI front blk.png";
 			var Vocho ="VW 1958 transp.jpg";            
 			var P71 = "P71 transp.png";
+			var FS = "fiserv_logo_orange_rgb.png"
                 
 			</script>
       </td>
