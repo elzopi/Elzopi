@@ -14,6 +14,7 @@ Added background blending and color to match Porsche 917 livery
 Added picture horizontal list to select the top margin picture to appear
 Modified pictures for Fiserv use
 Harmonized table entries, list entries to match style, eliminating redundant parameters using CSS
+Included background images for all lists [table background]
 -->
 
 
@@ -285,12 +286,13 @@ setInterval(clock, 1000);
 		<li title="P71" onclick="LoadImage(P71)">P71</li>
     </ul>
 
-
+</script>
 <!--      <img src="#"  alt="" title="" id="TCImg"/>  -->
 
 <td id=Top_Margin_Image height=40 valign=top width=120px align=left>
 <!-- src="#" renders a square "X" (e.g. no default image), using src="[IMAGE FILE]" serves as default and is overriden by LoadImage -->
-         <img id=TCImg src="fiserv_logo_orange_rgb.png" border=0 align=left valign=top hspace=0 vspace=0 height=100px> 
+         <img id=TCImg src="fiserv_logo_orange_rgb.png" border=0 align=left valign=top hspace=0 vspace=0 height=100px 
+		 alt="Fiserv"> 
             <script>
             
             function LoadImage ( src_ ) {
