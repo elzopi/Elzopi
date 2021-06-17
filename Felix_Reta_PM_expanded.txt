@@ -1,0 +1,284 @@
+
+FELIX E RETA, PMP
+1136 SW 49th Ter
+Plantation, Florida 33317
+Mobile: 954-554-2228
+Office: 850-388-3981
+Email: felix.reta@gmail.com
+Web: www.LinkedIn.com/in/freta
+
+PROFESSIONAL PROFILE
+A PMI certified Senior Technology Management professional with a solid multi-disciplinary background that includes complex and wide-ranging technology projects in a variety of industries: financial, healthcare, manufacturing and higher education, Has managed complex projects that included complex business proposals based on diverse platforms,
+including all sorts of IT infrastructure and systems development solutions. Proficient at Measurement, Tracking, Reporting, Risk reporting and Compliance aspects of the Project Lifecycle and solid Business Analysis acumen.
+
+DHL 						Apr 2013 - Oct 2014 (50%)
+						Jan 2011 - Jun 2012
+						May 2009 - June 2010
+						Jan 2018 - Current
+Support project and analysis tasks to review several Telecommunications
+Contracts for DHL America.
+- Structured the tools (Excel and SharePoint) to collect, process and report
+from vendor responses, country input and correlate contract information.
+- SharePoint site administration and workflow/library/tools design.
+- 5 year Contract value for the initiative: $8.3MM, average savings for the
+remainder value 15%.
+- Stakeholder communications: weekly status meetings, dashboards.
+- Extract Data Warehouse spend and category information for analysis.
+- Vendor management and communications.
+- Resource allocation, matrix for in-country resources.
+- Issues tracking, risk analysis and mitigation.
+
+Nominum (Under eTouch)			July 2017 - Oct 2017
+
+Project Manager
+
+-	Managing implementation project for Nominum solution at Telmex Mexico.
+
+-	Client liaison for any project deliverables, issues, risks, coordination and reporting.
+
+-	Following PMO framework for both companies.
+
+
+
+AT&T (under KForce)			Feb 2017 - May 2017
+
+Project Manager
+
+-	Member of the User Experience Technologies Front Door group, responsible for early stage high level estimation for Consumer and Business oriented initiatives.
+
+-	Handling small to large scale customer portal initiatives, evaluating impacts and assigning to internal SME groups for disposition.
+
+-	Coordinate any Program or Project Manager communications and requests between SME, Architects and Development teams.
+
+-	Responsible for streamlining tools and initiatives in SharePoint for report production and task automation
+
+
+
+AT&T (under ZeroChaos consulting)		Jun 2015 - Sep 2016
+Project Manager-Business Analyst
+-	Support Latin America Call Center Technologies implementation for Thomson Reuters outsourced contract.
+-	Assist with Project related activities for planning and implementation.
+-	Provide with Business Analysis and Project Management advising for each phase.
+-	Technical translation to Spanish and Portuguese.
+
+
+American Express (under Tata Consulting)	Nov 2014 - May 2015
+
+Project Manager - Technology
+
+- Manage Credit Bureau related initiatives.
+
+- Follow Amex Agile SDLC Project Management methodology.
+
+- Handling multiple project portfolio (3 to 10)
+
+
+Thomson Reuters	 Dec 2013 - Oct 2014 (50%)
+Project Manager-Business Analyst
+-	Support Latin America Call Center Technologies implementation for Argentina and Brazil.
+-	Assist with Project related activities for planning and implementation.
+-	Provide with Business Analysis and Project Management advising for each phase.
+-	Technical translation to Spanish and Portuguese.
+
+
+American Express 		Jun 2012 - Feb 2013
+Project Manager- Business Analyst Consultant
+-	Lead the Communications Capabilities Business team on multiple System Development initiatives using Waterfall and Agile methodologies, following established Project Management processes, rolling up project metrics and status to different PMO organizations within the company.
+-	Responsibilities include Business Analysis, process flow documentation and translation into the Product Log as requirements.
+-	Quality center scripts development and execution.
+-	Value of managed portfolio: $2MM.
+-	PMO Information Systems: Clarity & Share Point.
+
+
+HCA (Hospital Corporation of America) June 2010 - December 2010 
+Senior Project Manager 
+
+-	Manage Clinical and Hospital software implementation to support enhanced workflow, Federal and State regulations, Patient electronic records systems as well as real time reporting as part of HCA’s meaningful use strategy.
+-	Clinical and Supply Chain Software updates and upgrades coordination and management for the divisional Hospitals.
+-	Proof of concept Project Management for Emergency Room cardiac arrest information transmission from ambulance to hospital for an increased 30% survivability for STEMI (myocardial infarct) patients. Coordinated with County, State, Competitor Hospitals and private ambulance services.
+-	PMO implementation support for Project reporting, management and governance.
+
+
+ROYAL CARIBBEAN									June 2008 - January 2009
+Project Manager Consultant
+- Handled the anti-malware (Sophos) corporate upgrade for all global offices and 32 ships for over 9,000 devices including servers, laptops and workstations.
+- Portfolio included an AS400 JDE log security reporting rollout and the planning phase of an AS400 replication proposal.
+- Budget controlled was for $750,000 for all project phases from initiation to deployment.
+- Main project team size was around 15 Technical/Engineering experts (SME’s).
+- PMO Information System in place was Clarity.
+
+SIEMENS										May 2007 - May 2008
+Project Manager III
+- Lead a portfolio of 12 projects dealing with a major network separation initiative, budgeted at $2.5MM with a team size of 15 Network and operations experts.
+- Other portfolio components included server and data center migration, VPN configuration for B2B links, LAN/WAN implementation for US sites, including planning, risk and change management as well as budget control. Budget size varied from $40,000 to $150,000; with a team member size from 3 to 8 people.
+- PMO Information System utilized was Primavera.
+
+DELL COMPUTER INC.								September 2006 - April 2007
+Program Manager Contract
+- Lead the Latin America Global store Web based platform implementation under the corporate PMO to implement Dell's global internet portal for Latin America following Microsoft's MSF at CMM level 2. 
+- Budget established was for $1,200MM, led the project phases from initiation to design.
+- Team size was 10 experts during planning.
+- PMO Information System used was Clarity.
+
+KAPLAN UNIVERSITY								May 2005 - August 2006
+Technology Program Manager
+- Perform all Project Management activities under the PMO for the University’s headquarters and 80 sites, integrating them to the Active Directory structure as well as a standardized workstation XP image.
+- Multi-project portfolio included all related SharePoint intranet, collaboration and team sites, acting as necessary as Business Analyst for internal facing team sites based on Share Point.
+- Responsibilities included any infrastructure related initiatives such as server,audio and video IP conferencing & collaboration based on Nortel’s solution as well as Active directory, SMS & Exchange projects.
+- PMO Information System utilized was Clarity.
+
+CITIBANK-BANAMEX								November 2003 - April 2005
+Senior Technology Project Manager Consultant, Audit Counsel
+- Reporting directly to the CTO for this subsidiary, directed a staff of 3 managers to handle several mission critical projects including Database, Web and TCP/IP networking including 5 outside project managers and other technical resources.
+- Handled the network security portion of the merger, securing the perimeter and integrating to the global network.
+- Developed and presented new technology initiatives in business terms to tackle customer service and workflow streamlining.
+- Planned directed and executed 3 corporate sites move to an 11 story building as well as the migration of over 200 branches to a new backbone network in time, within budget following stringent corporate project and technical management guidelines.
+- PMO Information System using Microsoft Project Server.
+
+WASHINGTON MUTUAL AND CITIBANK							February 2002 - October 2003
+Consulting Audit Counsel and Project Manager
+- Participated and led project planning and execution for platform standardization and workstation/server building moves for over 2,000 positions at Washington Mutual Bank in Jacksonville, Florida and South Carolina mortgage operations headquarter buildings.
+- PMO centralized tool used was Microsoft Project server.
+- Engaged in several high visibility projects for Associates-Citibank Puerto Rico. Responsibilities included preparation of operational procedures. RFP’s and project management documentation in preparation for a full-scope Systems Audit that was successfully undertaken with no audit comments issued.
+- Worked with team sizes varying from 5 to 32 people in multiple sites including outsourced resources.
+
+CITIGROUP 
+Regional Project Manager - Telecommunications, Web Technologies			April 1996 - December 2001
+- Led the Internet metrics data warehousing development and implementation teams based on CMM level 3 standards utilizing Oracle and Informatica’s PowerCenter software suite. Project was budgeted for $1.5MM.
+- Managed the strategic implementation for the global web based home banking platform throughout the Latin America region for 3 countries. Average Budget per country was $600K, managing teams from 5 to 10 experts.
+- Directed the Regional Project Management function of concurrent application and networking projects that supported complex business initiatives.  Managed projects across multiple disciplines, countries and continents ranging from software implementations like Cards applications in Singapore, Lotus Notes and Internet-Intranet solutions to other IT projects, such as LAN - WAN integrations supporting Card and financial mission critical systems. Provided leadership and matrix team integration to local country project managers (from 3 to 21 project leaders) resulting in successful implementations.
+- Matrix Project Management structure was comprised of 21 in-country Project Managers with a variety of budgets from $100K to $1.5MM.
+
+Country Field Services Director 					January 1993 - March 1996
+- Directed the Field Services organization for Mexico, coordinating a staff of 3 managers and over 30 Engineers and Technicians.
+- Improved quality delivery of installation and maintenance for all LAN infrastructure, implemented standardized cabling, servers, PC and provided support for data (tcp/ip) and voice communications (Nortel Meridian 1) projects.  On the operations side, accomplished the reduction of mean time to repair from 72 to 24 hours and decreased per seat cost from an average of $75 to $25; while managing an annual operational budget of $1.7MM.
+- Collaborated as local Project Manager for Global and Regional Network and Application initiatives.
+- Managed 3 Technical Department Managers with a total staff of 32 Engineers, consultants and technicians.
+
+Micro Ware Systems Consultant							January 1992 - December 1992
+- Established and managed two consulting and systems integration companies to support Shared Financial’s ON2 high availability financial transaction system for Bancomer (Mexico's largest bank) based on Stratus’ fault tolerant systems.
+- Secured and maintained telecommunications and systems development consulting assignments with Fortune 500 companies in Mexico, managing a portfolio of contracts worth $250M.
+- Team size was variable from 5 to 12 members.
+
+AMERICAN EXPRESS CO.								May 1987 - December 1991
+Telecommunications Manager
+- Managed the new high availability transaction system implementation (IBM S/88 w/ON2 financial software) project with an investment of $ 600k USD.  Revamped all PBX phone systems for all country branches executing a budget of $1.5MM.
+- Organized and managed a staff of 15 in the newly formed Telecommunications area from its inception, the area supported the design, implementation and support functions for the country.
+- Responsible for the financial and administrative functions for all of the WAN/LAN/Voice services throughout Mexico.
+- Managed the Department’s operational expense budget of over $2MM USD annually.
+- Recommended and managed the installation of VSAT satellite communication to link all the branches in Mexico and IT Headquarters in Phoenix Arizona.  This project had a budget of $600M USD and an ROI of one year.
+
+EMGASA (Restaurant and Hotel holding company)					August 1985 - May 1987
+Information Systems Manager
+- Directed a staff of 10 handling the inventory, payroll and general ledger systems maintenance based on RPG & Cobol, and operations including enterprise end-to-end data integration for a 5 star restaurant chain.
+- Implemented the accounts payable and accounts receivable systems, streamlining data integration with the financial budgeting system and establishing the restaurant back-end pilot using PC to mid-range communications.
+- Handled an annualized operational budget of $450,000.
+- Attained estimated savings for Just in Time purchasing of over $85,000 per year.
+- Department team was 12 people, including operations and programming staff.
+
+Other pertinent experience - Public sector
+- Systems Analyst, Programmer and Systems Programmer for IBM mainframes.
+- Supervised 2 senior systems programmers for VTAM and IMS services.
+
+EDUCATION
+Kaplan University
+Project Management Certificate
+
+University of Phoenix
+Computer Information Systems Master’s Degree program (50% completed)
+
+La Salle University - Mexico
+BS Communications & Electronics Engineering
+
+Technical Skills
+
+Technology			Proficiency				# Years utilized
+
+
+Microsoft Office suite		Expert					15
+
+Microsoft Project		Expert					12
+
+Microsoft Visio			Proficient				8
+
+Microsoft SharePoint		Site Administrator, Analyst, User	3
+Microsoft Project Server	User					1
+
+Primavera			User					2
+
+Clarity				User					6
+
+Visual Basic			Beginner				6
+
+HTML				Beginner				10
+
+Oracle				User					2
+
+JDE-reporting			Beginner				1
+
+Linux/Unix			User					7
+
+Mainframe programming
+languages (Cobol, RPG, 
+Assembler, PL/I, Fortran)
+				Proficient				8
+
+Mainframe Systems Programming	Proficient				4
+
+Informatica Power Mart		User					2
+
+Project Management		Expert					12
+
+General Management		Proficient				10
+
+Networking
+(tcp/ip, routers, 
+switches, 
+satellite, fiber, 
+wireless)	Proficient				12
+
+Nortel Multimedia communications
+
+(SIP based, messaging, video, 
+audio)
+				Proficient				2
+
+Mac OS/X			Proficient				5
+
+Midrange (System 36, Stratus)	Proficient				4
+
+
+TECHNICAL EXPERTISE-TRAINING
+
+Harvard program on negotiation method	SharePoint business solutions
+Microsoft Project			Microsoft Visio
+Frontline Leadership			Microsoft Office suite
+Niku-Clarity				Business Negotiation Skills
+Problem Solving and Decision-making	Primavera
+Leading Teams				Project Management
+Time Management				Building Teamwork
+Stress Management			Effective Listening
+Quality Customer Service		Managing Personal Growth
+Total Quality Management		Motorola Introduction to Quality
+SCO Unix				Oracle basics
+Structured Programming			Data Communications Concepts
+Satellite Data Communications		IBM 370/30xx Systems Programming
+SharePoint Business solutions.		IBM VTAM/SNA Systems Programming
+Informatica Power-Mart/PowerCenter	Internet development strategies
+ON/2 SFS General Class & Internals	Tcp-ip networking
+Mac OS/X				Fortran, Cobol, Assembler, PL/I, RPG
+
+Languages
+Fully bilingual English-Spanish
+Novice Portuguese
+
+Memberships
+Project Management Institute
+Toastmasters International
+Apple Developer
+ITMPI
+
+PUBLICATIONS
+Technical Editor for an International Electronics' Monthly Magazine from 1991 to 2004.
+Translating-Editor for Technology Musical Teaching methodology since 2003.
+
