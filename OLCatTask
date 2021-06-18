@@ -1,5 +1,14 @@
 ' Provides option to categorize and automatically create a task from an email just before sending it
-' Felix Reta June 2021, please credit my work if you use my code or part of it, it's just professional
+' Code has to reside at ThisOutlookSession
+' Requires class built to take advantage of vba autofill-enumerate when coding:
+'
+' List friendly names of Unicode characters
+' Public Enum eUnicodeConst
+'     RightArrow
+'     LeftArrow
+'     Clock2
+' End Enum
+' Felix Reta June 2021, please credit my work if you use my code or part of it, it's just professional courtesy
 
 Option Explicit
 
@@ -27,15 +36,17 @@ Dim xYesNoorCancel As Integer
 
 On Error Resume Next
 
-If Item.Class = olMail Then
+If TypeOf Item Is MailItem Then
+
+' If Item.Class = olMail Then
     Set NewEmail = Item
 
-xPrompt = "Do you want to process before sending the email?"
-xYesNoorCancel = MsgBox(xPrompt, vbYesNoCancel)
+    xPrompt = "Do you want to process before sending the email?"
+    xYesNoorCancel = MsgBox(xPrompt, vbYesNoCancel)
 
 ' try case option WIP
 
-Select Case xYesNoorCancel
+    Select Case xYesNoorCancel
 
     Case vbYes
         NewEmail.ShowCategoriesDialog
@@ -49,7 +60,7 @@ Select Case xYesNoorCancel
         Set objTask = Application.CreateItem(olTaskItem)
 
         With objTask
-            .Subject = "Follow UP for " & Item.Subject
+            .Subject = UniConst(RightArrow) & " " & UniConst(Clock2) & " " & Item.Subject
             .StartDate = Item.ReceivedTime
             .DueDate = Item.ReceivedTime + 5
             .Body = Item.Body
