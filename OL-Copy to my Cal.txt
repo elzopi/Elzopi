@@ -1,0 +1,73 @@
+Sub CopyToDefaultCal()
+' This uses an existing instance if available (default Outlook behavior).
+' Developed by Felix Reta, Epsitel Corp. (C) Feb/2014
+' Loosely based from several Google'd samples
+
+    Dim oApp As New Outlook.Application
+    Dim oExp As Outlook.Explorer
+    Dim oSel As Outlook.Selection   ' You need a selection object for getting the selection.
+    Dim oItem As Object             ' You don't know the type yet.
+    Dim strMsgClass As String
+    Dim oAppointItem As Outlook.AppointmentItem
+    Dim newAppointItem As Outlook.AppointmentItem
+    Dim NS As NameSpace
+    Dim FolderDest As MAPIFolder
+    
+    Set NS = Outlook.Application.GetNamespace("MAPI")
+    With NS
+    Set FolderDest = .GetDefaultFolder(olFolderCalendar)
+    End With
+    
+    Set oExp = oApp.ActiveExplorer  ' Get the ActiveExplorer.
+    Set oSel = oExp.Selection       ' Get the selection.
+    
+    For i = 1 To oSel.Count         ' Loop through all the currently .selected items
+        Set oItem = oSel.Item(i)    ' Get a selected item.
+        strMessageClass = oItem.MessageClass
+        If (strMessageClass = "IPM.Appointment") Then       ' Calendar Entry.
+            Set oAppointItem = oItem
+            Set newAppointItem = Application.CreateItem(olAppointmentItem)
+' ooopppsss            Set newAppointItem = oAppointItem.Copy
+        
+        Set newAppointItem = oItem.Copy
+        newAppointItem.Categories = "Internet"
+        newAppointItem.ReminderSet = True
+        newAppointItem.ReminderMinutesBeforeStart = 20
+        newAppointItem.Subject = "Copy: " & newAppointItem.Subject
+        newAppointItem.Move FolderDest
+           
+'        DisplayInfo oItem           ' Display information about it.
+        End If
+
+    Next i
+
+' Tidy up
+
+
+End Sub
+
+Sub DisplayInfo(oItem As Object)
+    
+    Dim strMessageClass As String
+    Dim oAppointItem As Outlook.AppointmentItem
+    Dim oContactItem As Outlook.ContactItem
+    Dim oMailItem As Outlook.MailItem
+    Dim oJournalItem As Outlook.JournalItem
+    Dim oNoteItem As Outlook.NoteItem
+    Dim oTaskItem As Outlook.TaskItem
+    
+    ' You need the message class to determine the type.
+    strMessageClass = oItem.MessageClass
+    
+    If (strMessageClass = "IPM.Appointment") Then       ' Calendar Entry.
+        Set oAppointItem = oItem
+        MsgBox oAppointItem.Organizer
+        MsgBox oAppointItem.Subject
+        MsgBox oAppointItem.Start
+        MsgBox oAppointItem.End
+        
+    Else
+        MsgBox "This is not an appointment to copy" & "It is a " & strMessageClass
+    End If
+
+End Sub
