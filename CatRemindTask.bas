@@ -21,7 +21,7 @@ If TypeOf objMsg Is MailItem Then
 ' sets a specific due date
         .TaskDueDate = Now + 5
 
-        .FlagRequest = UniConst(RightArrow) & " " & UniConst(Clock2) & " " & objMsg.SenderName
+        .FlagRequest = UniConst(CheckOK) & " " & UniConst(XMark) & " " & objMsg.SenderName
         .ReminderSet = True
         .ReminderTime = Now + 4
 ' Now show Categories
@@ -86,9 +86,49 @@ Public Function UniConst(Text As eUnicodeConst) As String
         Case LeftArrow:     UniConst = ChrW(8592)
         Case RightArrow:    UniConst = ChrW(8594)
         Case Clock2:        UniConst = ChrW(55357) & ChrW(56657)
+        Case CheckOK:       UniConst = ChrW(&H2705)
+        Case Ghost:         UniConst = ChrW(&HD83D) & ChrW(&HDC7B)
+        Case MapleLeaf:     UniConst = ChrW(&HD83C) & ChrW(&HDF41)
+        Case Calaca:        UniConst = ChrW(&H2620)
+        Case Corazon:       UniConst = ChrW(&H2764)
+        Case Finger1:       UniConst = ChrW(&H261D)
+        Case HandBro:       UniConst = ChrW(&H270A)
+        Case SailBoat:      UniConst = ChrW(&H26F5)
+        Case Airplane:      UniConst = ChrW(&H2708)
+        Case Watch:         UniConst = ChrW(&H231A)
+        Case XMark:         UniConst = ChrW(10060)
+        
     End Select
 
 End Function
+
+Public Sub CreateNewMessage()
+Dim objMsg As MailItem
+
+Set objMsg = Application.CreateItem(olMailItem)
+
+ With objMsg
+  .To = "Alias@domain.com"
+  .CC = "Alias2@domain.com"
+  .BCC = "Alias3@domain.com"
+  .Subject = UniConst(Finger1) & " " & UniConst(XMark) & " " & UniConst(CheckOK) & " " & "El texto"
+  .Categories = "Office"
+  .VotingOptions = "Yes;No;Maybe;"
+  .BodyFormat = olFormatHTML ' send plain text message
+  .Importance = olImportanceHigh
+  .Sensitivity = olConfidential
+'  .Attachments.Add ("path-to-file.docx")
+
+' Calculate a date using DateAdd or enter an explicit date
+'  .ExpiryTime = DateAdd("m", 6, Now) '6 months from now
+' .DeferredDeliveryTime = #8/1/2012 6:00:00 PM#
+  
+  .Display
+End With
+
+Set objMsg = Nothing
+End Sub
+
 Sub CopyItem()
  
  Dim myNameSpace As Outlook.NameSpace
@@ -106,4 +146,9 @@ Sub CopyItem()
  myCopiedItem.Move myNewFolder
  
 End Sub
+Sub pruebita()
 
+    Subject = "Coco" & " " & UniConst(Chile) & " " & "El texto"
+    Debug.Print Subject
+    
+End Sub
