@@ -33,6 +33,12 @@ Attribute olCalendarItems.VB_VarHelpID = -1
 Public WithEvents myOlApp As Outlook.Application
 Attribute myOlApp.VB_VarHelpID = -1
 
+Sub Application_Startup()
+
+  Initialize_handler
+
+End Sub
+
 Public Sub Initialize_handler()
 ' Added for Office 365 October 2021 Felix Reta
 
