@@ -15,7 +15,8 @@ Added picture horizontal list to select the top margin picture to appear
 Modified pictures for Fiserv use
 Harmonized table entries, list entries to match style, eliminating redundant parameters using CSS
 Included background images for all lists [table background]
-Added Weather widget
+Added Weather widget 2021
+Added Time code for different time zones WIP, Feb 2022
 -->
 
 
@@ -249,9 +250,9 @@ var time = new Date(),
     
     
     seconds = time.getSeconds();
-document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+document.querySelectorAll('.clock')[0].innerHTML = TheTime(hours) + ":" + TheTime(minutes) + ":" + TheTime(seconds);
   
-  function harold(standIn) {
+  function TheTime(standIn) {
     if (standIn < 10) {
       standIn = '0' + standIn
     }
@@ -291,9 +292,11 @@ setInterval(clock, 1000);
 </script>
 <!--      <img src="#"  alt="" title="" id="TCImg"/>  -->
 
-<td id=Top_Margin_Image height=40 valign=top width=120px align=left>
+<td id=Top_Margin_Image height=40 valign=center width=120px align=center	>
+
 <!-- src="#" renders a square "X" (e.g. no default image), using src="[IMAGE FILE]" serves as default and is overriden by LoadImage -->
-         <img id=TCImg src="Alvaria logo.png" border=0 align=left valign=top hspace=0 vspace=0 height=40px 
+
+         <img id=TCImg src="Alvaria logo.png" border=0 align=center valign=center hspace=0 vspace=0 height=40px 
 		 alt="Alvaria"> 
             <script>
             
@@ -323,20 +326,11 @@ setInterval(clock, 1000);
       <TD height=28 noWrap valign=center align=center>
          <div id=dateScript class=date></div>
 
-<!-- Analog clock
-	<TD height=40 nowrap valign=center align=center>
- <iframe src="http://free.timeanddate.com/clock/i65k4mbt/n820/szw60/szh60/hocf00/hbw8/cf100/hnce1ead6" frameborder="0" width="60" height="60"></iframe>
-      </TD>
-end of Analog clock
--->
+
+
 <!-- This is a digital clock right below the date  -->
 
 <iframe src="http://free.timeanddate.com/clock/i6fp473b/n3546/fc4b0082/fn12/fs20/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="120" height="30" allowTransparency="true" align=center></iframe>
-
-
-<!--  OLD CODE, Too small for high resolution
-<iframe src="http://free.timeanddate.com/clock/i65k34x9/n263/tct/pct/ftb/th1/ts1/ta1" frameborder="0" width="100" height="40" allowTransparency="true"></iframe>
--->
 
 <!-- Next code segment is commented out to get rid of the "customize Outlook Today" option -->
 
@@ -384,18 +378,74 @@ end of Analog clock
 
 <!-- From: https://www.theweather.com/widget/ -->
 
-<div id="cont_c88574963ec1a3e95e37a7432a7b0522"><script type="text/javascript" async src="https://www.theweather.com/wid_loader/c88574963ec1a3e95e37a7432a7b0522"></script></div>
+<div id="cont_c88574963ec1a3e95e37a7432a7b0522">
+<script type="text/javascript" async src="https://www.theweather.com/wid_loader/c88574963ec1a3e95e37a7432a7b0522"></script></div>
 </div>
 <!-- End WX Widget Code -->
 
 </td>
 
-<!-- Added an empty for design -->
+<!-- Added an empty for design
 
 	<td height=28 nowrap valign=center align=left> <p>&nbsp;<p><p>&nbsp;<p>
 	</td>
+-->
 
-	</TR>
+<!-- Time zone clock code -->
+
+<script type="text/javascript">
+</script>
+
+<td nowrap style="color:blue;text-align:center;font-size:16;font-weight:bold;white-space: pre-line;vertical-align: text-top;">
+<p style="text-align:left;"><span id="datetime"></span></p>
+
+<script>
+
+function GetClock(){
+var tzOffset = -5;//set this to the number of hours offset from UTC, -5 ET, -6 CT, -7 MT, -8 PT
+var tzOffsetCT = -6
+var tzOffsetMT = -7
+var tzOffsetPT = -8
+
+var d=new Date();
+var dx=d.toGMTString();
+dx=dx.substr(0,dx.length -3);
+d.setTime(Date.parse(dx))
+d.setHours(d.getHours()+tzOffset);
+var nhour=d.getHours(),nmin=d.getMinutes();
+var nhourCT=(nhour-1),nmin=d.getMinutes();
+var nhourMT=(nhour-2);nmin=d.getMinutes();
+var nhourPT=(nhour-3);
+
+if(nmin<=9) nmin="0"+nmin;
+
+var clocktext="<br>CT "+nhourCT+":"+nmin+"<br>MT "+nhourMT+":"+nmin+"<br>PT "+nhourPT+":"+nmin;
+
+document.getElementById("datetime").innerHTML = clocktext;
+
+
+}
+
+
+GetClock();
+setInterval(GetClock,1000);
+
+<!-- Simpler function to obtain date/time
+
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+--> 
+
+</script>
+
+<!-- Added an empty for design
+
+-->
+	<td height=28 nowrap valign=center align=left> <p>&nbsp;<p><p>&nbsp;<p>
+	</td>
+
+
+</TR>
 
 </TABLE>
 
