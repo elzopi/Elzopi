@@ -407,15 +407,17 @@ var tzOffsetCT = -6
 var tzOffsetMT = -7
 var tzOffsetPT = -8
 
-var d=new Date();
-var dx=d.toGMTString();
-dx=dx.substr(0,dx.length -3);
-d.setTime(Date.parse(dx))
-d.setHours(d.getHours()+tzOffset);
+var d=new Date();  //Obtain current date/time
+var dx=d.toGMTString();  //Establish for GMT
+dx=dx.substr(0,dx.length -3); // get rid of GMT text (I guess)
+d.setTime(Date.parse(dx));  //Obtain time portion
+// d.setHours(d.getHours()+tzOffset); //HH portion with established offset to GMT
+d.setHours(d.getHours()); //HH portion of GMT
+
 var nhour=d.getHours(),nmin=d.getMinutes();
-var nhourCT=(nhour-1),nmin=d.getMinutes();
-var nhourMT=(nhour-2);nmin=d.getMinutes();
-var nhourPT=(nhour-3);
+var nhourCT=(nhour-6),nmin=d.getMinutes();
+var nhourMT=(nhour-7);
+var nhourPT=(nhour-8);
 
 if(nmin<=9) nmin="0"+nmin;
 
