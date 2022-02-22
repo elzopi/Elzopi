@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<Accounts>
+
+	<Company UserID="felix.reta@thomsonreuters.com" Password="DHL">DHL</Company>
+	<Company UserID="felix.reta@dhl.com" Password="Thomson Reuters">TR</Company>
+	<Company UserID="felix.reta@aexp.com" Password="American Express">AXP</Company>
+	<Company UserID="felix.reta@alvaria.com" Password="Alvaria">ALV</Company>
+
+	<Account UserID="felix.reta@gmail.com" Password="D5B4512659E7">Google</Account>
+	<Account UserID="felix.reta@live.com" Password="D5C44D6E70C684CB8B5DF3">Live</Account>
+	<Account UserID="felix.reta@epsitel.com" Password="F5EB517E59E7">Epsitel</Account>
+	<Account UserID="freta.pm@gmail.com" Password="F5EB517E59E7F0F0">GoogleFRPM</Account>
+
+	<Frase UserID="Imagination is more important than knowledge-Albert Einstein" Password="Einstein">Google</Frase>
+	<Frase UserID="Ultimately love is everything-M. Scott Peck" Password="Peck">Live</Frase>
+	<Frase UserID="Recognizing the need is the primary condition for design-Charles Eames" Password="Eames">Epsitel</Frase>
+	<Frase UserID="I paint self-portraits because I am so often alone, because I am the person I know best-Frida Kahlo" Password="Kahlo">GoogleFRPM</Frase>
+
+</Accounts>
