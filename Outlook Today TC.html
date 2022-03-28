@@ -16,7 +16,7 @@ Modified pictures for Fiserv use
 Harmonized table entries, list entries to match style, eliminating redundant parameters using CSS
 Included background images for all lists [table background]
 Added Weather widget 2021
-Added Time code for different time zones WIP, Feb 2022
+Added Time code for different time zones, adjusted colors to background for clarity, Feb 2022
 -->
 
 
@@ -64,10 +64,10 @@ ul li {font-size: 10;
 
 .itemNormal 		{font-size:8pt;	font-family:Tahoma; text-decoration:none;color:windowtext; } 
 
-.times 			   {font-size:7pt; line-height:11pt; font-family:Tahoma; text-decoration:none; cursor:hand; color:buttonshadow;}
+.times 			   {font-size:7pt; line-height:11pt; font-family:Tahoma; text-decoration:none; cursor:hand; color:blue;}
 
 .PastTimes 		   {color:buttonshadow; line-height:11pt; font-size:7pt; 
-				            text-decoration:none; cursor:hand; }
+				            text-decoration:line-through; cursor:hand; }
 .SplitDayTimes		   {color:teal; font-size:7pt; line-height:11pt;  
 				            text-decoration:none; cursor:hand; }
 .allDayEventTimes	   {color:teal; line-height:11pt; font-size:7pt;
@@ -397,7 +397,7 @@ setInterval(clock, 1000);
 </script>
 
 <td nowrap style="color:blue;text-align:center;font-size:16;font-weight:bold;white-space: pre-line;vertical-align: text-top;">
-<p style="text-align:left;"><span id="datetime"></span></p>
+<p style="text-align:center;"><span id="datetime"></span></p>
 
 <script>
 
@@ -421,7 +421,7 @@ var nhourPT=(nhour-8);
 
 if(nmin<=9) nmin="0"+nmin;
 
-var clocktext="<br>CT "+nhourCT+":"+nmin+"<br>MT "+nhourMT+":"+nmin+"<br>PT "+nhourPT+":"+nmin;
+var clocktext="<br>&#9973;&nbsp;CT "+nhourCT+":"+nmin+"<br>&#127748;&nbsp;MT "+nhourMT+":"+nmin+"<br>&#127940;&nbsp;PT "+nhourPT+":"+nmin;
 
 document.getElementById("datetime").innerHTML = clocktext;
 
